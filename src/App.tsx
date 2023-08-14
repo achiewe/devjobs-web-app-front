@@ -1,12 +1,14 @@
 import { styled } from "styled-components";
 import GlobalStyles from "./GlobalStyles";
-import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+import Header from "./components/Header";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Mode } from "./store/redux";
 function App() {
-  const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
+  // const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   return (
     <MainContainer>
       <GlobalStyles />
+      <Header />
     </MainContainer>
   );
 }
