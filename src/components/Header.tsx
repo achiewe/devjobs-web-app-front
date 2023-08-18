@@ -20,6 +20,7 @@ const MainHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   background-image: url(${bgMobile});
+  background-size: cover;
   background-repeat: no-repeat;
   gap: 100px;
   padding: 32px 24px 72px 24px;
