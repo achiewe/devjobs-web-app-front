@@ -3,8 +3,17 @@ import logoSvg from "../assets/desktop/logo.svg";
 import sunSvg from "../assets/desktop/icon-sun.svg";
 import moonSvg from "../assets/desktop/icon-moon.svg";
 import bgMobile from "../assets/mobile/bg-pattern-header.svg";
+import { Mode } from "../store/redux";
+import { useDispatch, useSelector } from "react-redux";
+import { dark } from "../store/ModeSlice";
 
 const Header = (): JSX.Element => {
+  const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
+  const dispatch = useDispatch();
+  const ClickOnMode = () => {
+    dispatch(dark(!darkMode));
+  };
+  console.log(ClickOnMode);
   return (
     <MainHeader>
       <img
@@ -18,7 +27,7 @@ const Header = (): JSX.Element => {
       <div>
         <img src={sunSvg} alt="sun svg" />
         <label>
-          <input type="checkbox" />
+          <input type="checkbox" onChange={ClickOnMode} />
           <span className="slide"></span>
         </label>
         <img src={moonSvg} alt="moon svg" />
