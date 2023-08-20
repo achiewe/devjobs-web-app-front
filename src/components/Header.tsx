@@ -13,7 +13,7 @@ const Header = (): JSX.Element => {
   const ClickOnMode = () => {
     dispatch(dark(!darkMode));
   };
-  console.log(ClickOnMode);
+
   return (
     <MainHeader>
       <img

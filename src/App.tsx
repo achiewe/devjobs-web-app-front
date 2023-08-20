@@ -6,10 +6,10 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Mode } from "./store/redux";
 function App() {
-  // const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
+  const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   return (
     <Router>
-      <MainContainer>
+      <MainContainer darkMode={darkMode}>
         <GlobalStyles />
         <Header />
         <BlackCover />
@@ -21,10 +21,10 @@ function App() {
   );
 }
 
-const MainContainer = styled.div`
+const MainContainer = styled.div<{ darkMode: boolean }>`
   width: 100%;
   min-height: 100vh;
-  background-color: #f4f6f8;
+  background-color: ${(props) => (props.darkMode ? "#121721" : "#F4F6F8")};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
