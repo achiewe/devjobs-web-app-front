@@ -27,6 +27,7 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  position: relative;
   align-items: center;
 `;
 

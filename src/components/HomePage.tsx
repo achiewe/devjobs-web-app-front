@@ -1,10 +1,12 @@
 import InputFilter from "./InputFilter";
 import { styled } from "styled-components";
+import FiltFrame from "./FilterFrame";
 
 const HomePage = (): JSX.Element => {
   return (
     <MainContainer>
       <InputFilter />
+      <FiltFrame />
     </MainContainer>
   );
 };
