@@ -1,17 +1,22 @@
 import { styled } from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import Header from "./components/Header";
-import InputFilter from "./components/InputFilter";
+import HomePage from "./components/HomePage";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Mode } from "./store/redux";
 function App() {
   // const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   return (
-    <MainContainer>
-      <GlobalStyles />
-      <Header />
-      <InputFilter />
-    </MainContainer>
+    <Router>
+      <MainContainer>
+        <GlobalStyles />
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </MainContainer>
+    </Router>
   );
 }
 
