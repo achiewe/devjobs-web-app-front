@@ -5,8 +5,9 @@ import { Mode } from "../store/redux";
 
 const FiltFrame = (): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
+  const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
   return (
-    <MainTab darkMode={darkMode}>
+    <MainTab darkMode={darkMode} ShowFrame={ShowFrame}>
       <div className="filtLocation">
         <img src={iconLoc} alt="icon location" />
         <input
@@ -27,11 +28,11 @@ const FiltFrame = (): JSX.Element => {
   );
 };
 
-const MainTab = styled.div<{ darkMode: boolean }>`
+const MainTab = styled.div<{ darkMode: boolean; ShowFrame: boolean }>`
   width: 327px;
   position: absolute;
-  background-color: white;
-  display: none;
+  background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
+  display: ${(props) => (props.ShowFrame ? "flex" : "none")};
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -53,7 +54,8 @@ const MainTab = styled.div<{ darkMode: boolean }>`
       border: none;
       width: 100%;
       outline: none;
-      color: #19202d;
+      color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
+      background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
@@ -61,7 +63,7 @@ const MainTab = styled.div<{ darkMode: boolean }>`
     }
 
     .filterLoc::placeholder {
-      opacity: 0.5;
+      opacity: ${(props) => (props.darkMode ? "" : "0.5")};
     }
   }
 
@@ -85,12 +87,13 @@ const MainTab = styled.div<{ darkMode: boolean }>`
       border: 1px solid red;
       width: 24px;
       height: 24px;
-      background: #19202d;
+      opacity: 0.1035;
+      background: #fff;
       border-radius: 3px;
     }
 
     p {
-      color: #19202d;
+      color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
       font-size: 16px;
       font-style: normal;
       font-weight: 700;

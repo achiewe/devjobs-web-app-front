@@ -20,7 +20,7 @@ const InputFilter = (): JSX.Element => {
           viewBox="0 0 20 20"
           fill="none"
           onClick={() => {
-            openFrame();
+            dispatch(openFrame());
           }}
         >
           <path
