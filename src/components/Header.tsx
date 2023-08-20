@@ -7,7 +7,14 @@ import bgMobile from "../assets/mobile/bg-pattern-header.svg";
 const Header = (): JSX.Element => {
   return (
     <MainHeader>
-      <img className="logoSvg" src={logoSvg} alt="logo svg" />
+      <img
+        className="logoSvg"
+        src={logoSvg}
+        alt="logo svg"
+        onClick={() => {
+          window.location.reload();
+        }}
+      />
       <div>
         <img src={sunSvg} alt="sun svg" />
         <label>
