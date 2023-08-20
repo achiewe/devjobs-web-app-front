@@ -12,6 +12,7 @@ function App() {
       <MainContainer>
         <GlobalStyles />
         <Header />
+        <BlackCover />
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
@@ -29,6 +30,15 @@ const MainContainer = styled.div`
   justify-content: flex-start;
   position: relative;
   align-items: center;
+`;
+
+const BlackCover = styled.div`
+  position: absolute;
+  opacity: 0.4965;
+  background: #000;
+  width: 100%;
+  min-height: 100vh;
+  display: none;
 `;
 
 export default App;
