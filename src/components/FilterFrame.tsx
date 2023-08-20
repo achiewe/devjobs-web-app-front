@@ -1,9 +1,12 @@
 import { styled } from "styled-components";
 import iconLoc from "../assets/desktop/icon-location.svg";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { Mode } from "../store/redux";
 
 const FiltFrame = (): JSX.Element => {
+  const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   return (
-    <MainTab>
+    <MainTab darkMode={darkMode}>
       <div className="filtLocation">
         <img src={iconLoc} alt="icon location" />
         <input
@@ -24,10 +27,10 @@ const FiltFrame = (): JSX.Element => {
   );
 };
 
-const MainTab = styled.div`
+const MainTab = styled.div<{ darkMode: boolean }>`
   width: 327px;
   position: absolute;
-  background-color: #ffffff;
+  background-color: white;
   display: none;
   flex-direction: column;
   justify-content: flex-start;

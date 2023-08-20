@@ -1,6 +1,9 @@
 import { styled } from "styled-components";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { Mode } from "../store/redux";
 
 const InputFilter = (): JSX.Element => {
+  const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   return (
     <MainFilter>
       <input type="text" placeholder="Filter by title…" />
