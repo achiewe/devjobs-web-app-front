@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import Header from "./components/Header";
+import InputFilter from "./components/InputFilter";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Mode } from "./store/redux";
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <MainContainer>
       <GlobalStyles />
       <Header />
+      <InputFilter />
     </MainContainer>
   );
 }
