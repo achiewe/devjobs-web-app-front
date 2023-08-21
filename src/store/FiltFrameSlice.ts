@@ -16,7 +16,7 @@ const FiltFrameSlice = createSlice({
       state.filter = !state.filter;
     },
     CloseFrame: (state) => {
-      state.filter = state.filter;
+      state.filter = false;
     },
   },
 });

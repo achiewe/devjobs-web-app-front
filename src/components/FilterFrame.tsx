@@ -2,10 +2,13 @@ import { styled } from "styled-components";
 import iconLoc from "../assets/desktop/icon-location.svg";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Mode } from "../store/redux";
+import { useDispatch } from "react-redux";
+import { CloseFrame } from "../store/FiltFrameSlice";
 
 const FiltFrame = (): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
+  const dispatch = useDispatch();
   return (
     <MainTab darkMode={darkMode} ShowFrame={ShowFrame}>
       <div className="filtLocation">
@@ -21,7 +24,13 @@ const FiltFrame = (): JSX.Element => {
         <input className="checkbox" type="checkbox" />
         <p> Full Time Only</p>
       </div>
-      <button className="searchBut" type="submit">
+      <button
+        className="searchBut"
+        type="submit"
+        onClick={() => {
+          dispatch(CloseFrame());
+        }}
+      >
         Search
       </button>
     </MainTab>
