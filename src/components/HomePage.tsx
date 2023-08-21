@@ -1,7 +1,6 @@
 import InputFilter from "./InputFilter";
 import { styled } from "styled-components";
 import FiltFrame from "./FilterFrame";
-import scootImg from "../assets/logos/scoot.svg";
 
 const HomePage = (): JSX.Element => {
   return (
@@ -26,8 +25,11 @@ const HomePage = (): JSX.Element => {
             />
           </svg>
           <div className="mainInfo">
-            <div className="workTime"></div>
+            <h3> 5h ago . Full Time</h3>
+            <h2> Senior Software Engineer</h2>
+            <h3> Scoot</h3>
           </div>
+          <h4> United Kingdom</h4>
         </div>
       </ListOfJobs>
     </MainContainer>
@@ -71,15 +73,31 @@ const ListOfJobs = styled.div`
       flex-direction: column;
       gap: 16px;
       justify-content: flex-start;
-      align-items: center;
+      align-items: flex-start;
+      margin-bottom: 44px;
 
-      .workTime {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+      h3 {
+        color: #6e8098;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
       }
+
+      h2 {
+        color: #19202d;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+    h4 {
+      color: #5964e0;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
     }
   }
 `;
