@@ -1,13 +1,16 @@
 import InputFilter from "./InputFilter";
 import { styled } from "styled-components";
 import FiltFrame from "./FilterFrame";
+import { useSelector } from "react-redux";
+import { Mode } from "../store/redux";
 
 const HomePage = (): JSX.Element => {
+  const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   return (
     <MainContainer>
       <InputFilter />
       <FiltFrame />
-      <ListOfJobs>
+      <ListOfJobs darkMode={darkMode}>
         <div className="jobsDiv">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +47,7 @@ const MainContainer = styled.div`
   margin-top: -40px;
 `;
 
-const ListOfJobs = styled.div`
+const ListOfJobs = styled.div<{ darkMode: boolean }>`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -57,7 +60,7 @@ const ListOfJobs = styled.div`
     display: flex;
     flex-direction: column;
     width: 327px;
-    background-color: #ffffff;
+    background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
     padding-left: 32px;
     padding-bottom: 36px;
     border-radius: 6px;
@@ -85,7 +88,7 @@ const ListOfJobs = styled.div`
       }
 
       h2 {
-        color: #19202d;
+        color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
         font-size: 20px;
         font-style: normal;
         font-weight: 700;
