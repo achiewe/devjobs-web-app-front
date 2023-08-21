@@ -7,12 +7,13 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Mode } from "./store/redux";
 function App() {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
+  const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
   return (
     <Router>
       <MainContainer darkMode={darkMode}>
         <GlobalStyles />
         <Header />
-        <BlackCover />
+        <BlackCover showFrame={ShowFrame} />
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
@@ -32,13 +33,13 @@ const MainContainer = styled.div<{ darkMode: boolean }>`
   align-items: center;
 `;
 
-const BlackCover = styled.div`
+const BlackCover = styled.div<{ showFrame: boolean }>`
   position: absolute;
   opacity: 0.4965;
   background: #000;
   width: 100%;
   min-height: 100vh;
-  display: none;
+  display: ${(props) => (props.showFrame ? "flex" : "none")};
 `;
 
 export default App;
