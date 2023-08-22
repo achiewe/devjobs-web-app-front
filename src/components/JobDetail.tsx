@@ -56,7 +56,44 @@ const JobDetail = (): JSX.Element => {
             dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu,
             dapibus eu, fermentum et, dapibus sed, urna.
           </p>
-          <div className="titleDownside"></div>
+
+          <div className="titleDownside">
+            <h2>Requirements </h2>
+            <div className="pDescDiv">
+              <p className="descP">
+                Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia,
+                magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae
+                facilisis libero dolor a purus. Sed vel lacus. Mauris nibh
+                felis, adipiscing varius, adipiscing in, lacinia vel, tellus.
+                Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc
+                tellus ante, mattis eget, gravida vitae, ultricies ac, leo.
+                Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
+              </p>
+              <div className="DotP">
+                <div className="dot"></div>
+                <p className="descP">Morbi interdum mollis sapien. Sed</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="titleDownside">
+            <h2>What You Will Do </h2>
+            <div className="pDescDiv">
+              <p className="descP">
+                Sed egestas, ante et vulputate volutpat, eros pede semper est,
+                vitae luctus metus libero eu augue. Morbi purus libero, faucibus
+                adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent
+                elementum hendrerit tortor. Sed semper lorem at felis.
+                Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod
+                dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu,
+                dapibus eu, fermentum et, dapibus sed, urna.
+              </p>
+              <div className="numP">
+                <span> 1</span>
+                <p className="descP">Morbi interdum mollis sapien. Sed</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </MainContainer>
@@ -203,6 +240,52 @@ const MainContainer = styled.div<{ darkMode: boolean }>`
         font-style: normal;
         font-weight: 400;
         line-height: 26px;
+      }
+
+      .titleDownside {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 28px;
+
+        .pDescDiv {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+
+          .DotP {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 32px;
+
+            .dot {
+              min-width: 4px;
+              height: 4px;
+              background-color: #5964e0;
+              border-radius: 50%;
+              margin-top: 10px;
+            }
+          }
+
+          .numP {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 24px;
+
+            span {
+              color: #5964e0;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 26px; /* 162.5% */
+            }
+          }
+        }
       }
     }
   }
