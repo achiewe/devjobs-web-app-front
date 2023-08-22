@@ -39,7 +39,7 @@ const JobDetail = (): JSX.Element => {
             <h2> Senior Software Engineer</h2>
             <h4> United Kingdrom</h4>
           </div>
-          <button> Apply Now </button>
+          <button className="buttonTop"> Apply Now </button>
         </div>
         <div className="titleSpace">
           <p className="descP">
@@ -96,6 +96,9 @@ const JobDetail = (): JSX.Element => {
           </div>
         </div>
       </div>
+      <footer>
+        <button className="buttonBot">Apply Now </button>
+      </footer>
     </MainContainer>
   );
 };
@@ -136,7 +139,7 @@ const MainContainer = styled.div<{ darkMode: boolean }>`
     line-height: normal;
   }
 
-  button {
+  .buttonTop {
     width: 100%;
     height: 48px;
     background-color: #5964e0;
@@ -282,13 +285,37 @@ const MainContainer = styled.div<{ darkMode: boolean }>`
               font-size: 16px;
               font-style: normal;
               font-weight: 700;
-              line-height: 26px; /* 162.5% */
+              line-height: 26px;
             }
           }
         }
       }
     }
   }
-`;
 
+  footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+
+    .buttonBot {
+      width: 327px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      border: none;
+      border-radius: 5px;
+      background-color: #5964e0;
+    }
+  }
+`;
 export default JobDetail;
