@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
+import JobDetail from "./components/JobDetail";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Mode } from "./store/redux";
@@ -16,6 +17,7 @@ function App() {
         <BlackCover showFrame={ShowFrame} />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/info" element={<JobDetail />} />
         </Routes>
       </MainContainer>
     </Router>
