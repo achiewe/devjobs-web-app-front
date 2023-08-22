@@ -32,6 +32,7 @@ const JobDetail = (): JSX.Element => {
           <p> Company Site</p>
         </a>
       </div>
+      <div className="deescriptDiv"></div>
     </MainContainer>
   );
 };
@@ -115,6 +116,17 @@ const MainContainer = styled.div<{ darkMode: boolean }>`
         line-height: normal;
       }
     }
+  }
+
+  .deescriptDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 327px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 40px 24px;
+    gap: 32px;
   }
 `;
 
