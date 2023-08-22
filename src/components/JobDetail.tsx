@@ -1,8 +1,11 @@
 import { styled } from "styled-components";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { Mode } from "../store/redux";
 
 const JobDetail = (): JSX.Element => {
+  const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   return (
-    <MainContainer>
+    <MainContainer darkMode={darkMode}>
       <div className="companyInfo">
         <div className="logoSite">
           <svg
@@ -33,7 +36,7 @@ const JobDetail = (): JSX.Element => {
   );
 };
 
-const MainContainer = styled.div`
+const MainContainer = styled.div<{ darkMode: boolean }>`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -50,7 +53,7 @@ const MainContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 27px;
-    background-color: #ffffff;
+    background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
     border-radius: 6px;
     padding-bottom: 32px;
 
@@ -75,7 +78,7 @@ const MainContainer = styled.div`
         gap: 13px;
 
         h2 {
-          color: #19202d;
+          color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
           text-align: center;
           font-size: 20px;
           font-style: normal;
@@ -101,6 +104,7 @@ const MainContainer = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
 
       p {
         color: #5964e0;
