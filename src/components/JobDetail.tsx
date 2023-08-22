@@ -32,7 +32,33 @@ const JobDetail = (): JSX.Element => {
           <p> Company Site</p>
         </a>
       </div>
-      <div className="deescriptDiv"></div>
+      <div className="deescriptDiv">
+        <div className="jobPosition">
+          <div className="PositionLoc">
+            <h3> 1w ago . Part Time</h3>
+            <h2> Senior Software Engineer</h2>
+            <h4> United Kingdrom</h4>
+          </div>
+          <button> Apply Now </button>
+        </div>
+        <div className="titleSpace">
+          <p className="descP">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus
+            hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque,
+            aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula
+            sollicitudin laoreet viverra, tortor libero sodales leo, eget
+            blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse
+            potenti. Sed egestas, ante et vulputate volutpat, eros pede semper
+            est, vitae luctus metus libero eu augue. Morbi purus libero,
+            faucibus adipiscing, commodo quis, gravida id, est. Sed lectus.
+            Praesent elementum hendrerit tortor. Sed semper lorem at felis.
+            Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod
+            dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu,
+            dapibus eu, fermentum et, dapibus sed, urna.
+          </p>
+          <div className="titleDownside"></div>
+        </div>
+      </div>
     </MainContainer>
   );
 };
@@ -46,6 +72,46 @@ const MainContainer = styled.div<{ darkMode: boolean }>`
   padding: 0 24px;
   margin-top: -15px;
   gap: 24px;
+
+  h3 {
+    color: #6e8098;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  h2 {
+    color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  h4 {
+    color: #5964e0;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  button {
+    width: 100%;
+    height: 48px;
+    background-color: #5964e0;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: none;
+    border-radius: 5px;
+  }
 
   .companyInfo {
     width: 327px;
@@ -77,24 +143,6 @@ const MainContainer = styled.div<{ darkMode: boolean }>`
         justify-content: center;
         align-items: center;
         gap: 13px;
-
-        h2 {
-          color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
-          text-align: center;
-          font-size: 20px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: normal;
-        }
-
-        h3 {
-          color: #6e8098;
-          text-align: center;
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-        }
       }
     }
     a {
@@ -127,6 +175,36 @@ const MainContainer = styled.div<{ darkMode: boolean }>`
     border-radius: 6px;
     padding: 40px 24px;
     gap: 32px;
+
+    .jobPosition {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 54px;
+
+      .PositionLoc {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+    }
+    .titleSpace {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      .descP {
+        color: #6e8098;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px;
+      }
+    }
   }
 `;
 
