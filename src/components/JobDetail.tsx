@@ -222,7 +222,7 @@ const MainContainer = styled.div<{ darkMode: boolean }>`
       display: flex;
       flex-direction: column;
       width: 327px;
-      background-color: #ffffff;
+      background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
       border-radius: 6px;
       padding: 40px 24px;
       gap: 32px;
@@ -310,7 +310,7 @@ const MainContainer = styled.div<{ darkMode: boolean }>`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
+    background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
     padding: 25px 0 23px 0;
 
     .buttonBot {
