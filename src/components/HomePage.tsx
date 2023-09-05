@@ -27,6 +27,7 @@ const HomePage = (): JSX.Element => {
             <h4> {job.location} </h4>
           </Job>
         ))}
+        <button> Load More </button>
       </ListOfJobs>
     </MainContainer>
   );
@@ -38,6 +39,7 @@ const MainContainer = styled.div`
   align-items: center;
   width: 100%;
   margin-top: -40px;
+  margin-bottom: 62px;
 `;
 
 const ListOfJobs = styled.div`
@@ -48,6 +50,20 @@ const ListOfJobs = styled.div`
   align-items: center;
   gap: 49px;
   margin-top: 57px;
+
+  button {
+    width: 141px;
+    height: 48px;
+    background-color: #5964e0;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
 `;
 
 const Job = styled.div<{ darkMode: boolean; backgrou: string }>`
