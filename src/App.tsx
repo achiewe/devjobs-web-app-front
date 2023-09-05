@@ -10,11 +10,26 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setEveryJob } from "./store/EveryJobSlice";
 import { useEffect } from "react";
+import JobsType from "../type";
+import { setJob } from "./store/DevJobsSlice";
+export const MONGO_URL = `http://localhost:3000/api/devjobs`;
 function App() {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
+  const Job = useSelector((job: Mode) => job.DevJob.job);
+  const size = 6;
   const dispatch = useDispatch();
-  const getInfo = async () => {
+
+  const pickJob = async () => {
+    const url = `${MONGO_URL}${size}`;
+
+    try {
+      const response = await axios.get<JobsType[]>(url);
+      dispatch(setJob(response.data));
+    } catch (error) {
+      console.log("catch error");
+    }
+
     try {
       const response = await axios.get("http://localhost:3000/api/devjobs");
       dispatch(setEveryJob(response.data));
@@ -23,8 +38,11 @@ function App() {
       console.error("Cannot get info:", error);
     }
   };
+
+  console.log(Job);
+
   useEffect(() => {
-    getInfo();
+    pickJob();
   }, []);
 
   return (

@@ -1,4 +1,4 @@
-interface Jobs {
+interface JobsType {
   id: number;
   company: string;
   logo: string;
@@ -14,4 +14,4 @@ interface Jobs {
   role: { content: string; items: string };
 }
 
-export default Jobs;
+export default JobsType;

@@ -6,13 +6,13 @@ import { Mode } from "../store/redux";
 
 const HomePage = (): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
-  const everyJob = useSelector((everyJob: Mode) => everyJob.EveryJob.everyJob);
+  const job = useSelector((job: Mode) => job.DevJob.job);
   return (
     <MainContainer>
       <InputFilter />
       <FiltFrame />
       <ListOfJobs>
-        {everyJob.map((job, index) => (
+        {job.map((job, index) => (
           <Job darkMode={darkMode} backgrou={job.logoBackground} key={index}>
             <div className="companLog">
               <img src={job.logo} alt="job" />
@@ -27,7 +27,13 @@ const HomePage = (): JSX.Element => {
             <h4> {job.location} </h4>
           </Job>
         ))}
-        <button> Load More </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+        >
+          Load More
+        </button>
       </ListOfJobs>
     </MainContainer>
   );
