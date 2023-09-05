@@ -6,9 +6,33 @@ import JobDetail from "./components/JobDetail";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Mode } from "./store/redux";
+import axios from "axios";
+import Jobs from "../type";
+import { useDispatch } from "react-redux";
+import { setEveryJob } from "./store/EveryJobSlice";
+import { useEffect } from "react";
 function App() {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
+  const everyJob = useSelector((everyJob: Mode) => everyJob.EveryJob.everyJob);
+  const dispatch = useDispatch();
+  const getInfo = async () => {
+    try {
+      const response = await axios.get(
+        "mongodb+srv://mamukashviliachi706:Raka20011@cluster0.kwxn09f.mongodb.net/api/devjobs"
+      );
+      dispatch(setEveryJob(response.data));
+      localStorage.setItem("myArray", JSON.stringify(response.data));
+    } catch (error) {
+      console.error("Cannot get info:", error);
+    }
+  };
+
+  useEffect(() => {
+    console.log(everyJob);
+    getInfo();
+  }, []);
+
   return (
     <Router>
       <MainContainer darkMode={darkMode}>

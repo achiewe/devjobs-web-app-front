@@ -6,7 +6,6 @@ import { Mode } from "../store/redux";
 
 const HomePage = (): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
-  const job = useSelector((job: Mode) => job.DevJob.job);
   return (
     <MainContainer>
       <InputFilter />
