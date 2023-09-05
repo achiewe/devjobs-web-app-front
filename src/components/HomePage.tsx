@@ -11,17 +11,21 @@ const HomePage = (): JSX.Element => {
     <MainContainer>
       <InputFilter />
       <FiltFrame />
-      <ListOfJobs darkMode={darkMode}>
+      <ListOfJobs>
         {everyJob.map((job, index) => (
-          <div className="jobsDiv" key={index}>
-            <img src={job.logo} alt="job logo" />
-            <div className="mainInfo">
-              <h3> 5h ago . Full Time</h3>
-              <h2> Senior Software Engineer</h2>
-              <h3> Scoot</h3>
+          <Job darkMode={darkMode} backgrou={job.logoBackground} key={index}>
+            <div className="companLog">
+              <img src={job.logo} alt="job" />
             </div>
-            <h4> United Kingdom </h4>
-          </div>
+            <div className="mainInfo">
+              <h3>
+                {job.postedAt} <div className="dot"></div> {job.contract}
+              </h3>
+              <h2> {job.position}</h2>
+              <h3> {job.company}</h3>
+            </div>
+            <h4> {job.location} </h4>
+          </Job>
         ))}
       </ListOfJobs>
     </MainContainer>
@@ -36,61 +40,81 @@ const MainContainer = styled.div`
   margin-top: -40px;
 `;
 
-const ListOfJobs = styled.div<{ darkMode: boolean }>`
+const ListOfJobs = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 49px;
   margin-top: 57px;
+`;
 
-  .jobsDiv {
+const Job = styled.div<{ darkMode: boolean; backgrou: string }>`
+  display: flex;
+  flex-direction: column;
+  width: 327px;
+  background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
+  padding-left: 32px;
+  padding-bottom: 36px;
+  border-radius: 6px;
+
+  .companLog {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
     display: flex;
+    justify-content: center;
+    margin-top: -25px;
+    margin-bottom: 24px;
+    background-color: ${(props) => (props.backgrou ? props.backgrou : "")};
+    align-items: center;
+  }
+
+  .mainInfo {
+    display: flex;
+    width: 100%;
     flex-direction: column;
-    width: 327px;
-    background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
-    padding-left: 32px;
-    padding-bottom: 36px;
-    border-radius: 6px;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 44px;
 
-    img {
-      margin-top: -25px;
-      margin-bottom: 24px;
-    }
-
-    .mainInfo {
-      display: flex;
+    h3 {
       width: 100%;
-      flex-direction: column;
-      gap: 16px;
+      color: #6e8098;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      display: flex;
+      flex-direction: row;
       justify-content: flex-start;
-      align-items: flex-start;
-      margin-bottom: 44px;
+      gap: 15px;
+      align-items: flex-end;
 
-      h3 {
-        color: #6e8098;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-      }
-
-      h2 {
-        color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
+      .dot {
+        width: 4px;
+        height: 4px;
+        background-color: #6e8098;
+        border-radius: 50%;
       }
     }
-    h4 {
-      color: #5964e0;
-      font-size: 14px;
+
+    h2 {
+      color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
+      font-size: 20px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
     }
+  }
+  h4 {
+    color: #5964e0;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
 `;
 export default HomePage;
