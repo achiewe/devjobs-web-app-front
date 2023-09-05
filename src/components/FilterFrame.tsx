@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import iconLoc from "../assets/desktop/icon-location.svg";
+import iconLoc from "../../public/assets/desktop/icon-location.svg";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Mode } from "../store/redux";
 import { useDispatch } from "react-redux";

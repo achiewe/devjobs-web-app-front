@@ -13,7 +13,6 @@ import { useEffect } from "react";
 function App() {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
-  const everyJob = useSelector((everyJob: Mode) => everyJob.EveryJob.everyJob);
   const dispatch = useDispatch();
   const getInfo = async () => {
     try {
@@ -24,9 +23,6 @@ function App() {
       console.error("Cannot get info:", error);
     }
   };
-
-  console.log(everyJob);
-
   useEffect(() => {
     getInfo();
   }, []);

@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
-import logoSvg from "../assets/desktop/logo.svg";
-import sunSvg from "../assets/desktop/icon-sun.svg";
-import moonSvg from "../assets/desktop/icon-moon.svg";
-import bgMobile from "../assets/mobile/bg-pattern-header.svg";
+import logoSvg from "./assets/desktop/logo.svg";
+import sunSvg from "../../public/assets/desktop/icon-sun.svg";
+import moonSvg from "../../public/assets/desktop/icon-moon.svg";
+import bgMobile from "../../public/assets/mobile/bg-pattern-header.svg";
 import { Mode } from "../store/redux";
 import { useDispatch, useSelector } from "react-redux";
 import { dark } from "../store/ModeSlice";
