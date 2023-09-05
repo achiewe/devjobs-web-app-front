@@ -7,7 +7,6 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Mode } from "./store/redux";
 import axios from "axios";
-import Jobs from "../type";
 import { useDispatch } from "react-redux";
 import { setEveryJob } from "./store/EveryJobSlice";
 import { useEffect } from "react";
@@ -18,9 +17,7 @@ function App() {
   const dispatch = useDispatch();
   const getInfo = async () => {
     try {
-      const response = await axios.get(
-        "mongodb+srv://mamukashviliachi706:Raka20011@cluster0.kwxn09f.mongodb.net/api/devjobs"
-      );
+      const response = await axios.get("http://localhost:3000/api/devjobs");
       dispatch(setEveryJob(response.data));
       localStorage.setItem("myArray", JSON.stringify(response.data));
     } catch (error) {
@@ -28,8 +25,9 @@ function App() {
     }
   };
 
+  console.log(everyJob);
+
   useEffect(() => {
-    console.log(everyJob);
     getInfo();
   }, []);
 
