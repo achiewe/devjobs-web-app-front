@@ -6,6 +6,7 @@ import { Mode } from "../store/redux";
 
 const HomePage = (): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
+  const job = useSelector((job: Mode) => job.DevJob.job);
   return (
     <MainContainer>
       <InputFilter />
@@ -32,7 +33,7 @@ const HomePage = (): JSX.Element => {
             <h2> Senior Software Engineer</h2>
             <h3> Scoot</h3>
           </div>
-          <h4> United Kingdom</h4>
+          <h4> United Kingdom </h4>
         </div>
       </ListOfJobs>
     </MainContainer>
