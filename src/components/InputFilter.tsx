@@ -14,7 +14,13 @@ const InputFilter = ({ setTitle }: FilterProps): JSX.Element => {
 
   return (
     <MainFilter darkMode={darkMode}>
-      <input type="text" placeholder="Filter by title…" />
+      <input
+        type="text"
+        placeholder="Filter by title…"
+        onChange={(e) => {
+          setTitle(e.target.value);
+        }}
+      />
       <div>
         <svg
           className="filterSvg"

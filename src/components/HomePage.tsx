@@ -8,15 +8,37 @@ import { useState } from "react";
 
 const HomePage = (): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
+
   const job = useSelector((job: Mode) => job.DevJob.job);
+
   const presentList = useSelector((list: Mode) => list.List.list);
+
+  const everyJob = useSelector((everyJob: Mode) => everyJob.EveryJob.everyJob);
+
   const dispatch = useDispatch();
+
   const [title, setTitle] = useState("");
+  const [fullTime, setFullTime] = useState(false);
+
   const updateJob = () => {
     dispatch(setList(1));
   };
 
   const visibleJob = 6 * presentList;
+
+  const filtJob = (title: string) => {
+    let filteredJob = everyJob; // Assuming 'everyJob' is an array of jobs
+
+    if (title) {
+      filteredJob = filteredJob.filter((job) => {
+        return job.position.toLowerCase().includes(title.toLowerCase());
+      });
+    }
+
+    return filteredJob; // Return the filtered result
+  };
+
+  const filteredJob = filtJob(title);
   return (
     <MainContainer>
       <InputFilter setTitle={setTitle} />
