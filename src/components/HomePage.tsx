@@ -18,7 +18,7 @@ const HomePage = (): JSX.Element => {
 
   const dispatch = useDispatch();
 
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(" ");
   const [fullTime, setFullTime] = useState(false);
 
   const updateJob = () => {
@@ -27,21 +27,16 @@ const HomePage = (): JSX.Element => {
 
   const visibleJob = 6 * presentList;
 
-  console.log(fullTime);
-
   const filtJob = (title: string, fullTime: boolean) => {
     let filteredJob = everyJob; // Assuming 'everyJob' is an array of jobs
-
     if (title) {
-      filteredJob = filteredJob.filter((job) => {
-        job.position.toLowerCase().includes(title.toLowerCase());
-      });
+      filteredJob = filteredJob.filter((job) =>
+        job.position.toLowerCase().includes(title.toLowerCase())
+      );
     }
 
     if (fullTime) {
-      filteredJob = filteredJob.filter((job) => {
-        job.contract === "Full Time";
-      });
+      filteredJob = filteredJob.filter((job) => job.contract === "Full Time");
     }
 
     return filteredJob; // Return the filtered result
@@ -54,12 +49,7 @@ const HomePage = (): JSX.Element => {
       <InputFilter setTitle={setTitle} />
       <FiltFrame setFullTime={setFullTime} fullTime={fullTime} />
       <ListOfJobs>
-        {(title !== ""
-          ? visibleFilterJob
-          : fullTime !== false
-          ? visibleFilterJob
-          : job.slice(0, visibleJob)
-        ).map((job, index) => (
+        {visibleFilterJob.map((job, index) => (
           <Link to="/info" className="linkInf" key={index}>
             <Job darkMode={darkMode} backgrou={job.logoBackground}>
               <div className="companLog">
