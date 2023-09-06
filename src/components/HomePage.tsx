@@ -10,8 +10,6 @@ import { Link } from "react-router-dom";
 const HomePage = (): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
 
-  const job = useSelector((job: Mode) => job.DevJob.job);
-
   const presentList = useSelector((list: Mode) => list.List.list);
 
   const everyJob = useSelector((everyJob: Mode) => everyJob.EveryJob.everyJob);
