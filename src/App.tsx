@@ -21,7 +21,7 @@ function App() {
   const dispatch = useDispatch();
 
   const pickJob = async () => {
-    const url = `${MONGO_URL}${size}`;
+    const url = `${MONGO_URL}`;
 
     try {
       const response = await axios.get<JobsType[]>(url);
