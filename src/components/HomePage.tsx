@@ -39,26 +39,29 @@ const HomePage = (): JSX.Element => {
   };
 
   const filteredJob = filtJob(title);
+  const visibleFilterJob = filteredJob.slice(0, visibleJob);
   return (
     <MainContainer>
       <InputFilter setTitle={setTitle} />
       <FiltFrame />
       <ListOfJobs>
-        {job.slice(0, visibleJob).map((job, index) => (
-          <Job darkMode={darkMode} backgrou={job.logoBackground} key={index}>
-            <div className="companLog">
-              <img src={job.logo} alt="job" />
-            </div>
-            <div className="mainInfo">
-              <h3>
-                {job.postedAt} <div className="dot"></div> {job.contract}
-              </h3>
-              <h2> {job.position}</h2>
-              <h3> {job.company}</h3>
-            </div>
-            <h4> {job.location} </h4>
-          </Job>
-        ))}
+        {(title !== "" ? visibleFilterJob : job.slice(0, visibleJob)).map(
+          (job, index) => (
+            <Job darkMode={darkMode} backgrou={job.logoBackground} key={index}>
+              <div className="companLog">
+                <img src={job.logo} alt="job" />
+              </div>
+              <div className="mainInfo">
+                <h3>
+                  {job.postedAt} <div className="dot"></div> {job.contract}
+                </h3>
+                <h2> {job.position}</h2>
+                <h3> {job.company}</h3>
+              </div>
+              <h4> {job.location} </h4>
+            </Job>
+          )
+        )}
         <button
           onClick={(e) => {
             e.preventDefault();
