@@ -6,10 +6,11 @@ import { useDispatch } from "react-redux";
 import { CloseFrame } from "../store/FiltFrameSlice";
 
 interface filtFrame {
+  fullTime: boolean;
   setFullTime(fullTime: boolean): void;
 }
 
-const FiltFrame = ({ setFullTime }: filtFrame): JSX.Element => {
+const FiltFrame = ({ fullTime, setFullTime }: filtFrame): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
   const dispatch = useDispatch();
@@ -25,7 +26,13 @@ const FiltFrame = ({ setFullTime }: filtFrame): JSX.Element => {
       </div>
       <hr />
       <div className="fullTime">
-        <input className="checkbox" type="checkbox" />
+        <input
+          className="checkbox"
+          type="checkbox"
+          onClick={() => {
+            setFullTime(!fullTime);
+          }}
+        />
         <p> Full Time Only</p>
       </div>
       <button

@@ -26,42 +26,53 @@ const HomePage = (): JSX.Element => {
 
   const visibleJob = 6 * presentList;
 
-  const filtJob = (title: string) => {
+  console.log(fullTime);
+
+  const filtJob = (title: string, fullTime: boolean) => {
     let filteredJob = everyJob; // Assuming 'everyJob' is an array of jobs
 
     if (title) {
       filteredJob = filteredJob.filter((job) => {
-        return job.position.toLowerCase().includes(title.toLowerCase());
+        job.position.toLowerCase().includes(title.toLowerCase());
+      });
+    }
+
+    if (fullTime) {
+      filteredJob = filteredJob.filter((job) => {
+        job.contract === "Full Time";
       });
     }
 
     return filteredJob; // Return the filtered result
   };
 
-  const filteredJob = filtJob(title);
+  const filteredJob = filtJob(title, fullTime);
   const visibleFilterJob = filteredJob.slice(0, visibleJob);
   return (
     <MainContainer>
       <InputFilter setTitle={setTitle} />
-      <FiltFrame setFullTime={setFullTime} />
+      <FiltFrame setFullTime={setFullTime} fullTime={fullTime} />
       <ListOfJobs>
-        {(title !== "" ? visibleFilterJob : job.slice(0, visibleJob)).map(
-          (job, index) => (
-            <Job darkMode={darkMode} backgrou={job.logoBackground} key={index}>
-              <div className="companLog">
-                <img src={job.logo} alt="job" />
-              </div>
-              <div className="mainInfo">
-                <h3>
-                  {job.postedAt} <div className="dot"></div> {job.contract}
-                </h3>
-                <h2> {job.position}</h2>
-                <h3> {job.company}</h3>
-              </div>
-              <h4> {job.location} </h4>
-            </Job>
-          )
-        )}
+        {(title !== ""
+          ? visibleFilterJob
+          : fullTime !== false
+          ? visibleFilterJob
+          : job.slice(0, visibleJob)
+        ).map((job, index) => (
+          <Job darkMode={darkMode} backgrou={job.logoBackground} key={index}>
+            <div className="companLog">
+              <img src={job.logo} alt="job" />
+            </div>
+            <div className="mainInfo">
+              <h3>
+                {job.postedAt} <div className="dot"></div> {job.contract}
+              </h3>
+              <h2> {job.position}</h2>
+              <h3> {job.company}</h3>
+            </div>
+            <h4> {job.location} </h4>
+          </Job>
+        ))}
         <button
           onClick={(e) => {
             e.preventDefault();
