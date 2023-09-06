@@ -43,7 +43,7 @@ const HomePage = (): JSX.Element => {
   return (
     <MainContainer>
       <InputFilter setTitle={setTitle} />
-      <FiltFrame />
+      <FiltFrame setFullTime={setFullTime} />
       <ListOfJobs>
         {(title !== "" ? visibleFilterJob : job.slice(0, visibleJob)).map(
           (job, index) => (

@@ -5,7 +5,11 @@ import { Mode } from "../store/redux";
 import { useDispatch } from "react-redux";
 import { CloseFrame } from "../store/FiltFrameSlice";
 
-const FiltFrame = (): JSX.Element => {
+interface filtFrame {
+  setFullTime(fullTime: boolean): void;
+}
+
+const FiltFrame = ({ setFullTime }: filtFrame): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
   const dispatch = useDispatch();
