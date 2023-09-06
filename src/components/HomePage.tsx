@@ -1,18 +1,26 @@
 import InputFilter from "./InputFilter";
 import { styled } from "styled-components";
 import FiltFrame from "./FilterFrame";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Mode } from "../store/redux";
+import { setList } from "../store/ListSlice";
 
 const HomePage = (): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const job = useSelector((job: Mode) => job.DevJob.job);
+  const presentList = useSelector((list: Mode) => list.List.list);
+  const dispatch = useDispatch();
+  const updateJob = () => {
+    dispatch(setList(1));
+  };
+
+  const visibleJob = 6 * presentList;
   return (
     <MainContainer>
       <InputFilter />
       <FiltFrame />
       <ListOfJobs>
-        {job.map((job, index) => (
+        {job.slice(0, visibleJob).map((job, index) => (
           <Job darkMode={darkMode} backgrou={job.logoBackground} key={index}>
             <div className="companLog">
               <img src={job.logo} alt="job" />
@@ -30,6 +38,7 @@ const HomePage = (): JSX.Element => {
         <button
           onClick={(e) => {
             e.preventDefault();
+            updateJob();
           }}
         >
           Load More

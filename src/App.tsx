@@ -12,17 +12,17 @@ import { setEveryJob } from "./store/EveryJobSlice";
 import { useEffect } from "react";
 import JobsType from "../type";
 import { setJob } from "./store/DevJobsSlice";
-export const MONGO_URL = `http://localhost:3000/api/devjobs`;
+export const MONGO_URL = `http://localhost:3000/api/devjobs/`;
 function App() {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
   const Job = useSelector((job: Mode) => job.DevJob.job);
+  const presentList = useSelector((list: Mode) => list.List.list);
   const size = 6;
   const dispatch = useDispatch();
 
   const pickJob = async () => {
-    const url = `${MONGO_URL}`;
-
+    const url = `${MONGO_URL}?size=${size}&page=${presentList}`;
     try {
       const response = await axios.get<JobsType[]>(url);
       dispatch(setJob(response.data));
@@ -39,11 +39,9 @@ function App() {
     }
   };
 
-  console.log(Job);
-
   useEffect(() => {
     pickJob();
-  }, []);
+  }, [presentList]);
 
   return (
     <Router>
