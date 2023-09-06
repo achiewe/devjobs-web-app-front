@@ -4,12 +4,14 @@ import FiltFrame from "./FilterFrame";
 import { useDispatch, useSelector } from "react-redux";
 import { Mode } from "../store/redux";
 import { setList } from "../store/ListSlice";
+import { useState } from "react";
 
 const HomePage = (): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const job = useSelector((job: Mode) => job.DevJob.job);
   const presentList = useSelector((list: Mode) => list.List.list);
   const dispatch = useDispatch();
+  const [title, setTitle] = useState("");
   const updateJob = () => {
     dispatch(setList(1));
   };
@@ -78,6 +80,7 @@ const ListOfJobs = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    cursor: pointer;
   }
 `;
 
