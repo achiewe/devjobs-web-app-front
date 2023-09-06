@@ -16,7 +16,6 @@ export const MONGO_URL = `http://localhost:3000/api/devjobs/`;
 function App() {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
-  const Job = useSelector((job: Mode) => job.DevJob.job);
   const presentList = useSelector((list: Mode) => list.List.list);
   const size = 6;
   const dispatch = useDispatch();

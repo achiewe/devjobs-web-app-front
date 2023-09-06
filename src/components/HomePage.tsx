@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Mode } from "../store/redux";
 import { setList } from "../store/ListSlice";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const HomePage = (): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
@@ -59,19 +60,21 @@ const HomePage = (): JSX.Element => {
           ? visibleFilterJob
           : job.slice(0, visibleJob)
         ).map((job, index) => (
-          <Job darkMode={darkMode} backgrou={job.logoBackground} key={index}>
-            <div className="companLog">
-              <img src={job.logo} alt="job" />
-            </div>
-            <div className="mainInfo">
-              <h3>
-                {job.postedAt} <div className="dot"></div> {job.contract}
-              </h3>
-              <h2> {job.position}</h2>
-              <h3> {job.company}</h3>
-            </div>
-            <h4> {job.location} </h4>
-          </Job>
+          <Link to="/info" className="linkInf" key={index}>
+            <Job darkMode={darkMode} backgrou={job.logoBackground}>
+              <div className="companLog">
+                <img src={job.logo} alt="job" />
+              </div>
+              <div className="mainInfo">
+                <h3>
+                  {job.postedAt} <div className="dot"></div> {job.contract}
+                </h3>
+                <h2> {job.position}</h2>
+                <h3> {job.company}</h3>
+              </div>
+              <h4> {job.location} </h4>
+            </Job>
+          </Link>
         ))}
         <button
           onClick={(e) => {
@@ -117,6 +120,14 @@ const ListOfJobs = styled.div`
     font-weight: 700;
     line-height: normal;
     cursor: pointer;
+  }
+
+  .linkInf {
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 

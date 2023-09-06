@@ -4,6 +4,7 @@ import { Mode } from "../store/redux";
 
 const JobDetail = (): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
+
   return (
     <MainContainer darkMode={darkMode}>
       <div className="insideCont">
