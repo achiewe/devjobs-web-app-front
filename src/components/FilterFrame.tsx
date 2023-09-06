@@ -29,7 +29,7 @@ const FiltFrame = ({ fullTime, setFullTime }: filtFrame): JSX.Element => {
         <input
           className="checkbox"
           type="checkbox"
-          onClick={() => {
+          onChange={() => {
             setFullTime(!fullTime);
           }}
         />

@@ -15,6 +15,7 @@ const InputFilter = ({ setTitle }: FilterProps): JSX.Element => {
   return (
     <MainFilter darkMode={darkMode}>
       <input
+        className="TitleFilt"
         type="text"
         placeholder="Filter by title…"
         onChange={(e) => {
@@ -60,7 +61,7 @@ const MainFilter = styled.form<{ darkMode: boolean }>`
   background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
   border-radius: 6px;
 
-  input {
+  .TitleFilt {
     width: 100%;
     border: none;
     color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
