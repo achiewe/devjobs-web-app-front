@@ -4,7 +4,11 @@ import { Mode } from "../store/redux";
 import { useDispatch } from "react-redux";
 import { openFrame } from "../store/FiltFrameSlice";
 
-const InputFilter = (): JSX.Element => {
+interface FilterProps {
+  setTitle(title: string): void;
+}
+
+const InputFilter = ({ setTitle }: FilterProps): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const dispatch = useDispatch();
 

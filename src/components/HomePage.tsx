@@ -19,7 +19,7 @@ const HomePage = (): JSX.Element => {
   const visibleJob = 6 * presentList;
   return (
     <MainContainer>
-      <InputFilter />
+      <InputFilter setTitle={setTitle} />
       <FiltFrame />
       <ListOfJobs>
         {job.slice(0, visibleJob).map((job, index) => (
