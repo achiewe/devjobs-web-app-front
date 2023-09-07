@@ -3,6 +3,7 @@ import logoSvg from "../../public/assets/desktop/logo.svg";
 import sunSvg from "../../public/assets/desktop/icon-sun.svg";
 import moonSvg from "../../public/assets/desktop/icon-moon.svg";
 import bgMobile from "../../public/assets/mobile/bg-pattern-header.svg";
+import bgTab from "../../public/assets/tablet/bg-pattern-header.svg";
 import { Mode } from "../store/redux";
 import { useDispatch, useSelector } from "react-redux";
 import { dark } from "../store/ModeSlice";
@@ -45,8 +46,13 @@ const MainHeader = styled.header`
   background-image: url(${bgMobile});
   background-size: cover;
   background-repeat: no-repeat;
-  gap: 100px;
   padding: 32px 24px 72px 24px;
+
+  @media (min-width: 768px) {
+    background-image: url(${bgTab});
+    border-radius: 0px 0px 0px 100px;
+    padding: 42px 40px 86px 40px;
+  }
 
   .logoSvg {
     cursor: pointer;
@@ -67,6 +73,9 @@ const MainHeader = styled.header`
       background-color: #ffffff;
       border-radius: 16px;
       position: relative;
+      @media (min-width: 768px) {
+        width: 50px;
+      }
 
       :hover {
         opacity: 0.5;
@@ -95,6 +104,12 @@ const MainHeader = styled.header`
         border-radius: 50%;
         left: 3px;
         bottom: 3px;
+        @media (min-width: 768px) {
+          height: 14px;
+          width: 14px;
+          bottom: 5px;
+          left: 5px;
+        }
       }
 
       input:checked + .slide:before {
