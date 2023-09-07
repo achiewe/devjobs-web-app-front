@@ -5,9 +5,16 @@ import LocSvg from "../../public/assets/desktop/icon-location.svg";
 interface PanelProps {
   setTitle(title: string): void;
   setFullTime(fullTime: boolean): void;
+  fullTime: boolean;
+  setLocation(location: string): void;
 }
 
-const JobFilterPanel = ({ setTitle, setFullTime }: PanelProps): JSX.Element => {
+const JobFilterPanel = ({
+  setTitle,
+  setFullTime,
+  fullTime,
+  setLocation,
+}: PanelProps): JSX.Element => {
   return (
     <MainFilter>
       <div className="titleDiv">
@@ -28,12 +35,21 @@ const JobFilterPanel = ({ setTitle, setFullTime }: PanelProps): JSX.Element => {
           className="filtLoc"
           type="text"
           placeholder="Filter by location…"
+          onChange={(e) => {
+            setLocation(e.target.value);
+          }}
         />
       </div>
       <hr />
       <div className="fullDiv">
         <div className="checkFull">
-          <input type="checkbox" className="checkInp" />
+          <input
+            type="checkbox"
+            className="checkInp"
+            onClick={() => {
+              setFullTime(!fullTime);
+            }}
+          />
           <h3> Full Time</h3>
         </div>
         <button className="searchBut" type="submit"></button>
