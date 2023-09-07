@@ -52,7 +52,9 @@ const JobFilterPanel = ({
           />
           <h3> Full Time</h3>
         </div>
-        <button className="searchBut" type="submit"></button>
+        <button className="searchBut" type="submit">
+          Search
+        </button>
       </div>
     </MainFilter>
   );
