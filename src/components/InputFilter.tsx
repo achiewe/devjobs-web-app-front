@@ -60,6 +60,9 @@ const MainFilter = styled.form<{ darkMode: boolean }>`
   padding: 16px 16px 16px 24px;
   background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
   border-radius: 6px;
+  @media (min-width: 768px) {
+    display: none;
+  }
 
   .TitleFilt {
     width: 100%;

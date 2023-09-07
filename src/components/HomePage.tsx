@@ -1,6 +1,7 @@
 import InputFilter from "./InputFilter";
 import { styled } from "styled-components";
 import FiltFrame from "./FilterFrame";
+import JobFilterPanel from "./JobFilterPanel";
 import { useDispatch, useSelector } from "react-redux";
 import { Mode } from "../store/redux";
 import { setList } from "../store/ListSlice";
@@ -61,6 +62,7 @@ const HomePage = (): JSX.Element => {
         fullTime={fullTime}
         setLocation={setLocation}
       />
+      <JobFilterPanel />
       <ListOfJobs>
         {visibleFilterJob.map((job, index) => (
           <Link to="/info" className="linkInf" key={index}>
@@ -103,7 +105,7 @@ const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: -40px;
+  margin-top: -36px;
   margin-bottom: 62px;
 `;
 
