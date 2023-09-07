@@ -23,6 +23,13 @@ const JobFilterPanel = (): JSX.Element => {
         />
       </div>
       <hr />
+      <div className="fullDiv">
+        <div className="checkFull">
+          <input type="checkbox" className="checkInp" />
+          <h3> Full Time</h3>
+        </div>
+        <button className="searchBut">Search </button>
+      </div>
     </MainFilter>
   );
 };
@@ -35,7 +42,7 @@ const MainFilter = styled.div`
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    gap: 24px;
+    gap: 23px;
     width: 689px;
     padding-left: 24px;
     padding-right: 16px;
@@ -90,6 +97,55 @@ const MainFilter = styled.div`
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+    }
+  }
+
+  .fullDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .checkFull {
+      width: 110px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 16px;
+
+      .checkInp {
+        width: 24px;
+        height: 24px;
+        border: none;
+        background: #19202d;
+        opacity: 0.1035;
+        border-radius: 3px;
+        outline: none;
+      }
+
+      h3 {
+        color: #19202d;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+    .searchBut {
+      width: 80px;
+      height: 48px;
+      border-radius: 5px;
+      background: #5964e0;
+      color: #fff;
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      border: none;
+      cursor: pointer;
     }
   }
 `;
