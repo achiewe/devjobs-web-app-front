@@ -132,7 +132,7 @@ const ListOfJobs = styled.div`
   }
 
   .linkInf {
-    width: 100%;
+    width: 327px;
     text-decoration: none;
     display: flex;
     justify-content: center;

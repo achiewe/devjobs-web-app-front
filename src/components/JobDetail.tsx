@@ -30,19 +30,22 @@ const JobDetail = (): JSX.Element => {
             </div>
             <div className="nameSite">
               <h2> {selectedJobDet?.company} </h2>
-              <h3> scoot.com</h3>
+              <h3>{selectedJobDet.company.toLowerCase() + ".com"}</h3>
             </div>
           </div>
-          <a>
+          <a href={selectedJobDet.website}>
             <p> Company Site</p>
           </a>
         </div>
         <div className="deescriptDiv">
           <div className="jobPosition">
             <div className="PositionLoc">
-              <h3> 1w ago . Part Time</h3>
-              <h2> Senior Software Engineer</h2>
-              <h4> United Kingdrom</h4>
+              <h3>
+                {selectedJobDet.postedAt} <div className="dateDot"> </div>
+                <h3> {selectedJobDet.contract}</h3>
+              </h3>
+              <h2> {selectedJobDet.position}</h2>
+              <h4>{selectedJobDet.location}</h4>
             </div>
             <button className="buttonTop"> Apply Now </button>
           </div>
@@ -135,6 +138,11 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: flex-end;
+      gap: 12px;
     }
 
     h2 {
@@ -214,6 +222,7 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
         height: 48px;
         display: flex;
         justify-content: center;
+        text-decoration: none;
         align-items: center;
         cursor: pointer;
 
@@ -251,6 +260,13 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
           gap: 11px;
           justify-content: flex-start;
           align-items: flex-start;
+
+          .dateDot {
+            width: 4px;
+            height: 4px;
+            background-color: #6e8098;
+            border-radius: 50%;
+          }
         }
       }
       .titleSpace {
