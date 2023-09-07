@@ -18,6 +18,9 @@ const HomePage = (): JSX.Element => {
 
   const [title, setTitle] = useState(" ");
   const [fullTime, setFullTime] = useState(false);
+  const [location, setLocation] = useState(" ");
+
+  console.log(location);
 
   const updateJob = () => {
     dispatch(setList(1));
@@ -45,7 +48,11 @@ const HomePage = (): JSX.Element => {
   return (
     <MainContainer>
       <InputFilter setTitle={setTitle} />
-      <FiltFrame setFullTime={setFullTime} fullTime={fullTime} />
+      <FiltFrame
+        setFullTime={setFullTime}
+        fullTime={fullTime}
+        setLocation={setLocation}
+      />
       <ListOfJobs>
         {visibleFilterJob.map((job, index) => (
           <Link to="/info" className="linkInf" key={index}>

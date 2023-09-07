@@ -8,9 +8,14 @@ import { CloseFrame } from "../store/FiltFrameSlice";
 interface filtFrame {
   fullTime: boolean;
   setFullTime(fullTime: boolean): void;
+  setLocation(location: string): void;
 }
 
-const FiltFrame = ({ fullTime, setFullTime }: filtFrame): JSX.Element => {
+const FiltFrame = ({
+  fullTime,
+  setFullTime,
+  setLocation,
+}: filtFrame): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
   const dispatch = useDispatch();
@@ -22,6 +27,9 @@ const FiltFrame = ({ fullTime, setFullTime }: filtFrame): JSX.Element => {
           className="filterLoc"
           type="text"
           placeholder="Filter by location…"
+          onChange={(e) => {
+            setLocation(e.target.value);
+          }}
         />
       </div>
       <hr />
