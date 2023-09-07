@@ -20,8 +20,6 @@ const HomePage = (): JSX.Element => {
   const [fullTime, setFullTime] = useState(false);
   const [location, setLocation] = useState(" ");
 
-  console.log(location);
-
   const updateJob = () => {
     dispatch(setList(1));
   };
@@ -38,6 +36,12 @@ const HomePage = (): JSX.Element => {
 
     if (fullTime) {
       filteredJob = filteredJob.filter((job) => job.contract === "Full Time");
+    }
+
+    if (location) {
+      filteredJob = filteredJob.filter((job) =>
+        job.location.toLocaleLowerCase().includes(location.toLowerCase())
+      );
     }
 
     return filteredJob; // Return the filtered result
