@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 import SearchSvg from "../../public/assets/desktop/icon-search.svg";
 import LocSvg from "../../public/assets/desktop/icon-location.svg";
+import { useSelector } from "react-redux";
+import { Mode } from "../store/redux";
 
 interface PanelProps {
   setTitle(title: string): void;
@@ -15,8 +17,9 @@ const JobFilterPanel = ({
   fullTime,
   setLocation,
 }: PanelProps): JSX.Element => {
+  const darkMode = useSelector((mode: Mode) => mode.Mode.gloomy);
   return (
-    <MainFilter>
+    <MainFilter darkMode={darkMode}>
       <div className="titleDiv">
         <img src={SearchSvg} alt="search logo" />
         <input
@@ -60,11 +63,11 @@ const JobFilterPanel = ({
   );
 };
 
-const MainFilter = styled.div`
+const MainFilter = styled.div<{ darkMode: boolean }>`
   display: none;
   @media (min-width: 768px) {
     display: flex;
-    background-color: #ffffff;
+    background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
@@ -94,9 +97,9 @@ const MainFilter = styled.div`
 
     .filtTitle {
       border: none;
-      background-color: #ffffff;
+      background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
       outline: none;
-      color: #19202d;
+      color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
       font-size: 16px;
       width: 105px;
       font-style: normal;
@@ -115,9 +118,9 @@ const MainFilter = styled.div`
 
     .filtLoc {
       border: none;
-      background-color: #ffffff;
+      background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
       outline: none;
-      color: #19202d;
+      color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
       font-size: 16px;
       width: 135px;
       font-style: normal;
@@ -153,7 +156,7 @@ const MainFilter = styled.div`
       }
 
       h3 {
-        color: #19202d;
+        color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
