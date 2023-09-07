@@ -62,7 +62,7 @@ const HomePage = (): JSX.Element => {
         fullTime={fullTime}
         setLocation={setLocation}
       />
-      <JobFilterPanel />
+      <JobFilterPanel setTitle={setTitle} setFullTime={setFullTime} />
       <ListOfJobs>
         {visibleFilterJob.map((job, index) => (
           <Link to="/info" className="linkInf" key={index}>

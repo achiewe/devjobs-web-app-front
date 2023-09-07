@@ -2,12 +2,20 @@ import { styled } from "styled-components";
 import SearchSvg from "../../public/assets/desktop/icon-search.svg";
 import LocSvg from "../../public/assets/desktop/icon-location.svg";
 
-const JobFilterPanel = (): JSX.Element => {
+interface PanelProps {
+  setTitle(title: string): void;
+  setFullTime(fullTime: boolean): void;
+}
+
+const JobFilterPanel = ({ setTitle, setFullTime }: PanelProps): JSX.Element => {
   return (
     <MainFilter>
       <div className="titleDiv">
         <img src={SearchSvg} alt="search logo" />
         <input
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
           className="filtTitle"
           type="text"
           placeholder="Filter by title…"
@@ -28,7 +36,7 @@ const JobFilterPanel = (): JSX.Element => {
           <input type="checkbox" className="checkInp" />
           <h3> Full Time</h3>
         </div>
-        <button className="searchBut">Search </button>
+        <button className="searchBut" type="submit"></button>
       </div>
     </MainFilter>
   );
@@ -123,6 +131,7 @@ const MainFilter = styled.div`
         opacity: 0.1035;
         border-radius: 3px;
         outline: none;
+        cursor: pointer;
       }
 
       h3 {
