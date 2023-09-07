@@ -190,8 +190,9 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
         .logoDiv {
           width: 50px;
           margin-top: -25px;
+          border-radius: 15px;
           height: 50px;
-          background-color: green;
+          background-color: ${(props) => (props.bg ? props.bg : "")};
           display: flex;
           justify-content: center;
           align-items: center;
