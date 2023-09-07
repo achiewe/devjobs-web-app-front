@@ -92,15 +92,16 @@ const HomePage = (): JSX.Element => {
             </Job>
           </Link>
         ))}
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            updateJob();
-          }}
-        >
-          Load More
-        </button>
       </ListOfJobs>
+      <button
+        className="loadMore"
+        onClick={(e) => {
+          e.preventDefault();
+          updateJob();
+        }}
+      >
+        Load More
+      </button>
     </MainContainer>
   );
 };
@@ -112,6 +113,29 @@ const MainContainer = styled.div`
   width: 100%;
   margin-top: -36px;
   margin-bottom: 62px;
+  @media (min-width: 768px) {
+    margin-top: -46px;
+  }
+
+  .loadMore {
+    width: 141px;
+    height: 48px;
+    background-color: #5964e0;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    margin-top: 32px;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+
+    @media (min-width: 768px) {
+      margin-top: 56px;
+    }
+  }
 `;
 
 const ListOfJobs = styled.div`
@@ -122,20 +146,11 @@ const ListOfJobs = styled.div`
   align-items: center;
   gap: 49px;
   margin-top: 57px;
-
-  button {
-    width: 141px;
-    height: 48px;
-    background-color: #5964e0;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    text-align: center;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    cursor: pointer;
+  @media (min-width: 768px) {
+    margin-top: 70px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 65px 11px;
   }
 
   .linkInf {
