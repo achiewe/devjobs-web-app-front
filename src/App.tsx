@@ -30,7 +30,9 @@ function App() {
     }
 
     try {
-      const response = await axios.get("http://localhost:3000/api/devjobs");
+      const response = await axios.get<JobsType[]>(
+        `http://localhost:3000/api/devjobs`
+      );
       dispatch(setEveryJob(response.data));
       localStorage.setItem("devJobsData", JSON.stringify(response.data));
     } catch (error) {

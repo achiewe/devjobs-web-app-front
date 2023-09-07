@@ -24,9 +24,13 @@ const HomePage = (): JSX.Element => {
     dispatch(setList(1));
   };
 
+  const clickJob = (jobId: number) => {
+    localStorage.setItem("clickedJobId", jobId.toString());
+  };
+
   const visibleJob = 6 * presentList;
 
-  const filtJob = (title: string, fullTime: boolean) => {
+  const filtJob = (title: string, fullTime: boolean, location: string) => {
     let filteredJob = everyJob; // Assuming 'everyJob' is an array of jobs
     if (title) {
       filteredJob = filteredJob.filter((job) =>
@@ -47,7 +51,7 @@ const HomePage = (): JSX.Element => {
     return filteredJob; // Return the filtered result
   };
 
-  const filteredJob = filtJob(title, fullTime);
+  const filteredJob = filtJob(title, fullTime, location);
   const visibleFilterJob = filteredJob.slice(0, visibleJob);
   return (
     <MainContainer>
@@ -60,7 +64,13 @@ const HomePage = (): JSX.Element => {
       <ListOfJobs>
         {visibleFilterJob.map((job, index) => (
           <Link to="/info" className="linkInf" key={index}>
-            <Job darkMode={darkMode} backgrou={job.logoBackground}>
+            <Job
+              darkMode={darkMode}
+              backgrou={job.logoBackground}
+              onClick={() => {
+                clickJob(job.id);
+              }}
+            >
               <div className="companLog">
                 <img src={job.logo} alt="job" />
               </div>
