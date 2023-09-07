@@ -47,60 +47,44 @@ const JobDetail = (): JSX.Element => {
               <h2> {selectedJobDet.position}</h2>
               <h4>{selectedJobDet.location}</h4>
             </div>
-            <button className="buttonTop"> Apply Now </button>
+            <a className="hrefTop" href={selectedJobDet.website}>
+              Apply Now
+            </a>
           </div>
           <div className="titleSpace">
-            <p className="descP">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-              Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi
-              neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium,
-              ligula sollicitudin laoreet viverra, tortor libero sodales leo,
-              eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo.
-              Suspendisse potenti. Sed egestas, ante et vulputate volutpat, eros
-              pede semper est, vitae luctus metus libero eu augue. Morbi purus
-              libero, faucibus adipiscing, commodo quis, gravida id, est. Sed
-              lectus. Praesent elementum hendrerit tortor. Sed semper lorem at
-              felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque
-              euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede
-              arcu, dapibus eu, fermentum et, dapibus sed, urna.
-            </p>
+            <p className="descP">{selectedJobDet.description}</p>
 
             <div className="titleDownside">
               <h2>Requirements </h2>
               <div className="pDescDiv">
-                <p className="descP">
-                  Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia,
-                  magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae
-                  facilisis libero dolor a purus. Sed vel lacus. Mauris nibh
-                  felis, adipiscing varius, adipiscing in, lacinia vel, tellus.
-                  Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc
-                  tellus ante, mattis eget, gravida vitae, ultricies ac, leo.
-                  Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
-                </p>
-                <div className="DotP">
-                  <div className="dot"></div>
-                  <p className="descP">Morbi interdum mollis sapien. Sed</p>
-                </div>
+                <p className="descP">{selectedJobDet.requirements.content}</p>
+                {selectedJobDet.requirements.items.map(
+                  (aspect: any, index: any) => {
+                    return (
+                      <div className="DotP" key={index}>
+                        <div className="dot"></div>
+                        <p className="descP">{aspect}</p>
+                      </div>
+                    );
+                  }
+                )}
               </div>
             </div>
 
             <div className="titleDownside">
               <h2>What You Will Do </h2>
               <div className="pDescDiv">
-                <p className="descP">
-                  Sed egestas, ante et vulputate volutpat, eros pede semper est,
-                  vitae luctus metus libero eu augue. Morbi purus libero,
-                  faucibus adipiscing, commodo quis, gravida id, est. Sed
-                  lectus. Praesent elementum hendrerit tortor. Sed semper lorem
-                  at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi
-                  neque euismod dui, eu pulvinar nunc sapien ornare nisl.
-                  Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed,
-                  urna.
-                </p>
-                <div className="numP">
-                  <span> 1</span>
-                  <p className="descP">Morbi interdum mollis sapien. Sed</p>
-                </div>
+                <p className="descP">{selectedJobDet.requirements.content}</p>
+                {selectedJobDet.requirements.items.map(
+                  (aspect: any, index: any) => {
+                    return (
+                      <div className="numP" key={index}>
+                        <span> {index}</span>
+                        <p className="descP">{aspect}</p>
+                      </div>
+                    );
+                  }
+                )}
               </div>
             </div>
           </div>
@@ -162,7 +146,7 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       line-height: normal;
     }
 
-    .buttonTop {
+    .hrefTop {
       width: 100%;
       height: 48px;
       background-color: #5964e0;
@@ -172,6 +156,11 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+      align-items: center;
+      cursor: pointer;
       border: none;
       border-radius: 5px;
     }
