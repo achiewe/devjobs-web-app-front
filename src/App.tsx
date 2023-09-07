@@ -32,7 +32,7 @@ function App() {
     try {
       const response = await axios.get("http://localhost:3000/api/devjobs");
       dispatch(setEveryJob(response.data));
-      localStorage.setItem("myArray", JSON.stringify(response.data));
+      localStorage.setItem("devJobsData", JSON.stringify(response.data));
     } catch (error) {
       console.error("Cannot get info:", error);
     }

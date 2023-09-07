@@ -1,9 +1,21 @@
 import { styled } from "styled-components";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Mode } from "../store/redux";
+import JobsType from "../../type";
 
 const JobDetail = (): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
+
+  // Retrieve the list of saved job information from local storage
+  const savedJobs: JobsType[] = JSON.parse(
+    localStorage.getItem("devJobsData") || "[]"
+  );
+
+  // Retrieve the ID of the clicked job from local storage
+  const clickedJobId = parseInt(localStorage.getItem("clickedJobId") || "0");
+
+  // Find the job with the matching ID from the saved jobs list
+  const selectedJob = savedJobs.find((job) => job.id === clickedJobId);
 
   return (
     <MainContainer darkMode={darkMode}>
