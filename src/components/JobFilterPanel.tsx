@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import SearchSvg from "../../public/assets/desktop/icon-search.svg";
+import LocSvg from "../../public/assets/desktop/icon-location.svg";
 
 const JobFilterPanel = (): JSX.Element => {
   return (
@@ -14,13 +15,14 @@ const JobFilterPanel = (): JSX.Element => {
       </div>
       <hr />
       <div className="locDiv">
-        <img src={SearchSvg} alt="search logo" />
+        <img src={LocSvg} alt="location logo" />
         <input
-          className="filtTitle"
+          className="filtLoc"
           type="text"
-          placeholder="Filter by title…"
+          placeholder="Filter by location…"
         />
       </div>
+      <hr />
     </MainFilter>
   );
 };
@@ -77,6 +79,18 @@ const MainFilter = styled.div`
     gap: 16px;
     justify-content: flex-start;
     align-items: center;
+
+    .filtLoc {
+      border: none;
+      background-color: #ffffff;
+      outline: none;
+      color: #19202d;
+      font-size: 16px;
+      width: 135px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
   }
 `;
 
