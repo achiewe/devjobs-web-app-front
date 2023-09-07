@@ -58,16 +58,15 @@ const JobDetail = (): JSX.Element => {
               <h2>Requirements </h2>
               <div className="pDescDiv">
                 <p className="descP">{selectedJobDet.requirements.content}</p>
-                {selectedJobDet.requirements.items.map(
-                  (aspect: any, index: any) => {
-                    return (
-                      <div className="DotP" key={index}>
-                        <div className="dot"></div>
-                        <p className="descP">{aspect}</p>
-                      </div>
-                    );
-                  }
-                )}
+
+                {selectedJobDet.requirements.items.map((aspect, index) => {
+                  return (
+                    <div className="DotP" key={index}>
+                      <div className="dot"></div>
+                      <p className="descP">{aspect}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -75,16 +74,14 @@ const JobDetail = (): JSX.Element => {
               <h2>What You Will Do </h2>
               <div className="pDescDiv">
                 <p className="descP">{selectedJobDet.requirements.content}</p>
-                {selectedJobDet.requirements.items.map(
-                  (aspect: any, index: any) => {
-                    return (
-                      <div className="numP" key={index}>
-                        <span> {index}</span>
-                        <p className="descP">{aspect}</p>
-                      </div>
-                    );
-                  }
-                )}
+                {selectedJobDet.requirements.items.map((aspect, index) => {
+                  return (
+                    <div className="numP" key={index}>
+                      <span> {index}</span>
+                      <p className="descP">{aspect}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

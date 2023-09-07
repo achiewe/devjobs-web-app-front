@@ -10,8 +10,8 @@ interface JobsType {
   website: string;
   apply: string;
   description: string;
-  requirements: { content: string; items: string };
-  role: { content: string; items: string };
+  requirements: { content: string; items: string[] };
+  role: { content: string; items: string[] };
 }
 
 export default JobsType;

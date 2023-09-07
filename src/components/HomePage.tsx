@@ -159,6 +159,9 @@ const ListOfJobs = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (min-width: 768px) {
+      width: 339px;
+    }
   }
 `;
 
@@ -170,6 +173,9 @@ const Job = styled.div<{ darkMode: boolean; backgrou: string }>`
   padding-left: 32px;
   padding-bottom: 36px;
   border-radius: 6px;
+  @media (min-width: 768px) {
+    width: 339px;
+  }
 
   .companLog {
     width: 50px;

@@ -20,7 +20,7 @@ const FiltFrame = ({
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
   const dispatch = useDispatch();
   return (
-    <MainTab darkMode={darkMode} ShowFrame={ShowFrame}>
+    <MainTab darkMode={darkMode} ShowFrame={ShowFrame} fullTime={fullTime}>
       <div className="filtLocation">
         <img src={iconLoc} alt="icon location" />
         <input
@@ -56,7 +56,11 @@ const FiltFrame = ({
   );
 };
 
-const MainTab = styled.div<{ darkMode: boolean; ShowFrame: boolean }>`
+const MainTab = styled.div<{
+  darkMode: boolean;
+  ShowFrame: boolean;
+  fullTime: boolean;
+}>`
   width: 327px;
   position: absolute;
   background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
@@ -115,8 +119,8 @@ const MainTab = styled.div<{ darkMode: boolean; ShowFrame: boolean }>`
       border: 1px solid red;
       width: 24px;
       height: 24px;
-      opacity: 0.1035;
-      background: #fff;
+      background: ${(props) => (props.darkMode ? "white" : "#19202d")};
+      opacity: ${(props) => (props.fullTime ? "" : "0.1")};
       border-radius: 3px;
     }
 
