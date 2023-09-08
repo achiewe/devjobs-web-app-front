@@ -56,38 +56,45 @@ const JobDetail = (): JSX.Element => {
 
             <div className="titleDownside">
               <h2 className="subchapter">Requirements </h2>
-              <div className="pDescDiv">
+              <div className="mainPDesc">
                 <p className="descP">{selectedJobDet.requirements.content}</p>
-
-                {selectedJobDet.requirements.items.map((aspect, index) => {
-                  return (
-                    <div className="DotP" key={index}>
-                      <div className="dot"></div>
-                      <p className="descP">{aspect}</p>
-                    </div>
-                  );
-                })}
+                <div className="pDescDiv">
+                  {selectedJobDet.requirements.items.map((aspect, index) => {
+                    return (
+                      <div className="DotP" key={index}>
+                        <div className="dot"></div>
+                        <p className="descP">{aspect}</p>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
             <div className="titleDownside">
               <h2 className="subchapter">What You Will Do </h2>
-              <div className="pDescDiv">
+              <div className="mainPDesc">
                 <p className="descP">{selectedJobDet.requirements.content}</p>
-                {selectedJobDet.requirements.items.map((aspect, index) => {
-                  return (
-                    <div className="numP" key={index}>
-                      <span> {index}</span>
-                      <p className="descP">{aspect}</p>
-                    </div>
-                  );
-                })}
+                <div className="pDescDiv">
+                  {selectedJobDet.requirements.items.map((aspect, index) => {
+                    return (
+                      <div className="numP" key={index}>
+                        <span> {index}</span>
+                        <p className="descP">{aspect}</p>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <footer>
+        <div className="footerDiv">
+          <h2 className="subchapter">Senior Software Engineer </h2>
+          <p className="descP"> So Digital Inc.</p>
+        </div>
         <button className="buttonBot">Apply Now </button>
       </footer>
     </MainContainer>
@@ -105,6 +112,29 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
   @media (min-width: 768px) {
     gap: 53px;
     margin-top: -25px;
+  }
+
+  .subchapter {
+    color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    @media (min-width: 768px) {
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+
+  .descP {
+    color: #6e8098;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
   }
 
   .insideCont {
@@ -345,14 +375,6 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
         flex-direction: column;
         gap: 40px;
 
-        .descP {
-          color: #6e8098;
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 26px;
-        }
-
         .titleDownside {
           display: flex;
           flex-direction: column;
@@ -360,55 +382,49 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
           align-items: flex-start;
           gap: 28px;
 
-          .subchapter {
-            color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
-            text-align: center;
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            @media (min-width: 768px) {
-              font-size: 20px;
-              font-style: normal;
-              font-weight: 700;
-              line-height: normal;
-            }
-          }
-
-          .pDescDiv {
+          .mainPDesc {
             display: flex;
             flex-direction: column;
             gap: 32px;
-
-            .DotP {
-              display: flex;
-              flex-direction: row;
-              justify-content: flex-start;
-              align-items: flex-start;
-              gap: 32px;
-
-              .dot {
-                min-width: 4px;
-                height: 4px;
-                background-color: #5964e0;
-                border-radius: 50%;
-                margin-top: 10px;
-              }
+            @media (min-width: 768px) {
+              gap: 24px;
             }
 
-            .numP {
+            .pDescDiv {
               display: flex;
-              flex-direction: row;
-              justify-content: flex-start;
-              align-items: flex-start;
-              gap: 24px;
+              flex-direction: column;
+              gap: 10px;
 
-              span {
-                color: #5964e0;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 26px;
+              .DotP {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 32px;
+
+                .dot {
+                  min-width: 4px;
+                  height: 4px;
+                  background-color: #5964e0;
+                  border-radius: 50%;
+                  margin-top: 10px;
+                }
+              }
+
+              .numP {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 24px;
+
+                span {
+                  color: #5964e0;
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 700;
+                  line-height: 26px;
+                }
               }
             }
           }
@@ -424,6 +440,22 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
     align-items: center;
     background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
     padding: 25px 0 23px 0;
+    @media (min-width: 768px) {
+      padding: 23px 40px;
+      justify-content: space-between;
+    }
+
+    .footerDiv {
+      display: none;
+
+      @media (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
 
     .buttonBot {
       width: 327px;
@@ -440,6 +472,11 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       border: none;
       border-radius: 5px;
       background-color: #5964e0;
+
+      @media (min-width: 768px) {
+        width: 141px;
+        height: 48px;
+      }
     }
   }
 `;
