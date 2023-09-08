@@ -26,7 +26,7 @@ const JobDetail = (): JSX.Element => {
         <div className="companyInfo">
           <div className="logoSite">
             <div className="logoDiv">
-              <img src={selectedJobDet?.logo} />
+              <img className="logoImg" src={selectedJobDet?.logo} />
             </div>
             <div className="nameSite">
               <h2> {selectedJobDet?.company} </h2>
@@ -115,6 +115,10 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
     align-items: center;
     padding: 0 24px;
     gap: 24px;
+    @media (min-width: 768px) {
+      gap: 32px;
+      padding: 0 40px;
+    }
 
     h3 {
       color: #6e8098;
@@ -137,6 +141,12 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      @media (min-width: 768px) {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
     }
 
     h4 {
@@ -176,6 +186,15 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       background-color: ${(props) => (props.darkMode ? "#19202D" : "#FFFFFF")};
       border-radius: 6px;
       padding-bottom: 32px;
+      @media (min-width: 768px) {
+        width: 689px;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-right: 40px;
+        padding-bottom: 45px;
+        padding-top: 42px;
+        position: relative;
+      }
 
       .logoSite {
         width: 100%;
@@ -184,6 +203,10 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
         gap: 24px;
         justify-content: center;
         align-items: center;
+        @media (min-width: 768px) {
+          flex-direction: row;
+          gap: 40px;
+        }
 
         .logoDiv {
           width: 50px;
@@ -194,6 +217,26 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
           display: flex;
           justify-content: center;
           align-items: center;
+
+          @media (min-width: 768px) {
+            width: 140px;
+            height: 150px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            margin-top: 0px;
+            border-bottom-left-radius: 6px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+          }
+
+          .logoImg {
+            @media (min-width: 768px) {
+              width: 80px;
+              height: 25px;
+            }
+          }
         }
 
         .nameSite {
@@ -203,10 +246,14 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
           justify-content: center;
           align-items: center;
           gap: 13px;
+          @media (min-width: 768px) {
+            width: 78px;
+            align-items: flex-start;
+          }
         }
       }
       a {
-        width: 147px;
+        width: 153px;
         border-radius: 5px;
         background-color: rgba(89, 100, 224, 0.1);
         height: 48px;
@@ -215,6 +262,8 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
         text-decoration: none;
         align-items: center;
         cursor: pointer;
+        @media (min-width: 768px) {
+        }
 
         p {
           color: #5964e0;
