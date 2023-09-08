@@ -19,7 +19,7 @@ const JobFilterPanel = ({
 }: PanelProps): JSX.Element => {
   const darkMode = useSelector((mode: Mode) => mode.Mode.gloomy);
   return (
-    <MainFilter darkMode={darkMode}>
+    <MainFilter darkMode={darkMode} fullTime={fullTime}>
       <div className="titleDiv">
         <img src={SearchSvg} alt="search logo" />
         <input
@@ -63,7 +63,7 @@ const JobFilterPanel = ({
   );
 };
 
-const MainFilter = styled.div<{ darkMode: boolean }>`
+const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
   display: none;
   @media (min-width: 768px) {
     display: flex;
@@ -148,8 +148,8 @@ const MainFilter = styled.div<{ darkMode: boolean }>`
         width: 24px;
         height: 24px;
         border: none;
-        background: #19202d;
-        opacity: 0.1035;
+        background: ${(props) => (props.darkMode ? "white" : "#19202d")};
+        opacity: ${(props) => (props.fullTime ? "" : "0.1")};
         border-radius: 3px;
         outline: none;
         cursor: pointer;
