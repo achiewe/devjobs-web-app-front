@@ -29,7 +29,7 @@ const JobDetail = (): JSX.Element => {
               <img className="logoImg" src={selectedJobDet?.logo} />
             </div>
             <div className="nameSite">
-              <h2> {selectedJobDet?.company} </h2>
+              <h2 className="companyH2"> {selectedJobDet?.company} </h2>
               <h3>{selectedJobDet.company.toLowerCase() + ".com"}</h3>
             </div>
           </div>
@@ -44,7 +44,7 @@ const JobDetail = (): JSX.Element => {
                 {selectedJobDet.postedAt} <div className="dateDot"> </div>
                 <h3> {selectedJobDet.contract}</h3>
               </h3>
-              <h2> {selectedJobDet.position}</h2>
+              <h2 className="positionH2"> {selectedJobDet.position}</h2>
               <h4>{selectedJobDet.location}</h4>
             </div>
             <a className="hrefTop" href={selectedJobDet.website}>
@@ -55,7 +55,7 @@ const JobDetail = (): JSX.Element => {
             <p className="descP">{selectedJobDet.description}</p>
 
             <div className="titleDownside">
-              <h2>Requirements </h2>
+              <h2 className="subchapter">Requirements </h2>
               <div className="pDescDiv">
                 <p className="descP">{selectedJobDet.requirements.content}</p>
 
@@ -71,7 +71,7 @@ const JobDetail = (): JSX.Element => {
             </div>
 
             <div className="titleDownside">
-              <h2>What You Will Do </h2>
+              <h2 className="subchapter">What You Will Do </h2>
               <div className="pDescDiv">
                 <p className="descP">{selectedJobDet.requirements.content}</p>
                 {selectedJobDet.requirements.items.map((aspect, index) => {
@@ -134,21 +134,6 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       gap: 12px;
     }
 
-    h2 {
-      color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
-      text-align: center;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      @media (min-width: 768px) {
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-      }
-    }
-
     h4 {
       color: #5964e0;
       font-size: 14px;
@@ -174,6 +159,10 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       cursor: pointer;
       border: none;
       border-radius: 5px;
+      @media (min-width: 768px) {
+        width: 170px;
+        padding: 16px 28px;
+      }
     }
 
     .companyInfo {
@@ -250,6 +239,21 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
             width: 78px;
             align-items: flex-start;
           }
+
+          .companyH2 {
+            color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
+            text-align: center;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            @media (min-width: 768px) {
+              font-size: 24px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+            }
+          }
         }
       }
       a {
@@ -262,8 +266,6 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
         text-decoration: none;
         align-items: center;
         cursor: pointer;
-        @media (min-width: 768px) {
-        }
 
         p {
           color: #5964e0;
@@ -285,12 +287,23 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       border-radius: 6px;
       padding: 40px 24px;
       gap: 32px;
+      @media (min-width: 768px) {
+        width: 689px;
+        padding: 48px;
+        gap: 44px;
+      }
 
       .jobPosition {
         width: 100%;
         display: flex;
         flex-direction: column;
         gap: 54px;
+        @media (min-width: 768px) {
+          flex-direction: row;
+          gap: 0;
+          justify-content: space-between;
+          align-items: center;
+        }
 
         .PositionLoc {
           width: 100%;
@@ -299,12 +312,30 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
           gap: 11px;
           justify-content: flex-start;
           align-items: flex-start;
+          @media (min-width: 768px) {
+            gap: 12px;
+          }
 
           .dateDot {
             width: 4px;
             height: 4px;
             background-color: #6e8098;
             border-radius: 50%;
+          }
+
+          .positionH2 {
+            color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
+            text-align: center;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            @media (min-width: 768px) {
+              font-size: 28px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+            }
           }
         }
       }
@@ -328,6 +359,21 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
           justify-content: flex-start;
           align-items: flex-start;
           gap: 28px;
+
+          .subchapter {
+            color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
+            text-align: center;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            @media (min-width: 768px) {
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+            }
+          }
 
           .pDescDiv {
             display: flex;
