@@ -102,6 +102,10 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
   align-items: center;
   margin-top: -15px;
   gap: 64px;
+  @media (min-width: 768px) {
+    gap: 53px;
+    margin-top: -25px;
+  }
 
   .insideCont {
     width: 100%;
