@@ -9,6 +9,8 @@ interface PanelProps {
   setFullTime(fullTime: boolean): void;
   fullTime: boolean;
   setLocation(location: string): void;
+  location: string;
+  title: string;
 }
 
 const JobFilterPanel = ({
@@ -16,10 +18,22 @@ const JobFilterPanel = ({
   setFullTime,
   fullTime,
   setLocation,
+  location,
+  title,
 }: PanelProps): JSX.Element => {
   const darkMode = useSelector((mode: Mode) => mode.Mode.gloomy);
+
   return (
-    <MainFilter darkMode={darkMode} fullTime={fullTime}>
+    <MainFilter
+      darkMode={darkMode}
+      fullTime={fullTime}
+      onSubmit={(e) => {
+        e.preventDefault();
+        setLocation(location);
+        setFullTime(!fullTime);
+        setTitle(title);
+      }}
+    >
       <div className="titleDiv">
         <img src={SearchSvg} alt="search logo" />
         <input
@@ -27,6 +41,7 @@ const JobFilterPanel = ({
             setTitle(e.target.value);
           }}
           className="filtTitle"
+          value={title}
           type="text"
           placeholder="Filter by title…"
         />
@@ -38,6 +53,7 @@ const JobFilterPanel = ({
           className="filtLoc"
           type="text"
           placeholder="Filter by location…"
+          value={location}
           onChange={(e) => {
             setLocation(e.target.value);
           }}
@@ -65,7 +81,7 @@ const JobFilterPanel = ({
   );
 };
 
-const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
+const MainFilter = styled.form<{ darkMode: boolean; fullTime: boolean }>`
   display: none;
   @media (min-width: 768px) {
     display: flex;

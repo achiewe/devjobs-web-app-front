@@ -67,6 +67,8 @@ const HomePage = (): JSX.Element => {
         setFullTime={setFullTime}
         fullTime={fullTime}
         setLocation={setLocation}
+        location={location}
+        title={title}
       />
       <ListOfJobs>
         {visibleFilterJob.map((job, index) => (
