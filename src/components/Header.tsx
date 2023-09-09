@@ -4,6 +4,7 @@ import sunSvg from "../../public/assets/desktop/icon-sun.svg";
 import moonSvg from "../../public/assets/desktop/icon-moon.svg";
 import bgMobile from "../../public/assets/mobile/bg-pattern-header.svg";
 import bgTab from "../../public/assets/tablet/bg-pattern-header.svg";
+import bgDesk from "../../public/assets/desktop/bg-pattern-header.svg";
 import { Mode } from "../store/redux";
 import { useDispatch, useSelector } from "react-redux";
 import { dark } from "../store/ModeSlice";
@@ -52,6 +53,11 @@ const MainHeader = styled.header`
     background-image: url(${bgTab});
     border-radius: 0px 0px 0px 100px;
     padding: 42px 40px 86px 40px;
+  }
+
+  @media (min-width: 1024px) {
+    background-image: url(${bgDesk});
+    padding: 44px 165px 84px 165px;
   }
 
   .logoSvg {
