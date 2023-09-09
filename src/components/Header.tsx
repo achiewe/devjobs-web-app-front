@@ -23,7 +23,7 @@ const Header = (): JSX.Element => {
         src={logoSvg}
         alt="logo svg"
         onClick={() => {
-          window.location.reload();
+          window.location.href = "http://localhost:5173/";
         }}
       />
       <div>
