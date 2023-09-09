@@ -247,6 +247,10 @@ const Job = styled.div<{ darkMode: boolean; backgrou: string }>`
       font-weight: 700;
       line-height: normal;
     }
+
+    h2:hover {
+      color: #6e8098;
+    }
   }
   h4 {
     color: #5964e0;
