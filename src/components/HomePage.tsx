@@ -116,6 +116,9 @@ const MainContainer = styled.div`
   @media (min-width: 768px) {
     margin-top: -46px;
   }
+  @media (min-width: 1024px) {
+    margin-top: -44px;
+  }
 
   .loadMore {
     width: 141px;
@@ -153,6 +156,12 @@ const ListOfJobs = styled.div`
     gap: 65px 11px;
   }
 
+  @media (min-width: 1024px) {
+    gap: 65px 30px;
+    margin-top: 105px;
+    max-width: 1110px;
+  }
+
   .linkInf {
     width: 327px;
     text-decoration: none;
@@ -160,7 +169,11 @@ const ListOfJobs = styled.div`
     justify-content: center;
     align-items: center;
     @media (min-width: 768px) {
-      width: 339px;
+      min-width: 339px;
+    }
+
+    @media (min-width: 1024px) {
+      width: 350px;
     }
   }
 `;
@@ -175,6 +188,10 @@ const Job = styled.div<{ darkMode: boolean; backgrou: string }>`
   border-radius: 6px;
   @media (min-width: 768px) {
     width: 339px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 350px;
   }
 
   .companLog {
@@ -210,6 +227,10 @@ const Job = styled.div<{ darkMode: boolean; backgrou: string }>`
       justify-content: flex-start;
       gap: 15px;
       align-items: flex-end;
+
+      @media (min-width: 1024px) {
+        gap: 12px;
+      }
 
       .dot {
         width: 4px;
