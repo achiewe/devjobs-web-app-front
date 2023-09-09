@@ -201,6 +201,10 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       }
     }
 
+    .hrefTop:hover {
+      background-color: #939bf4;
+    }
+
     .companyInfo {
       width: 327px;
       display: flex;
@@ -335,6 +339,13 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
           font-weight: 700;
           line-height: normal;
         }
+      }
+
+      a:hover {
+        background: ${(props) =>
+          props.darkMode
+            ? "rgba(255, 255, 255, 0.4)"
+            : "rgba(89, 100, 224, 0.5)"};
       }
     }
 
@@ -512,11 +523,16 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       border: none;
       border-radius: 5px;
       background-color: #5964e0;
+      cursor: pointer;
 
       @media (min-width: 768px) {
         width: 141px;
         height: 48px;
       }
+    }
+
+    .buttonBot:hover {
+      background-color: #939bf4;
     }
   }
 `;
