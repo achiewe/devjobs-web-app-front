@@ -41,10 +41,10 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - Mobile-first workflow
-- [node.js] (https://nodejs.org/en) - backend
-- [Redux] (https://redux.js.org/)
-- [mongoDb] (https://www.mongodb.com/)
-- [Postman] (https://www.postman.com/)
+- [node.js](https://nodejs.org/en) - backend
+- [Redux](https://redux.js.org/)
+- [mongoDb](https://www.mongodb.com/)
+- [Postman](https://www.postman.com/)
 - [React](https://reactjs.org/) - JS library
 - [Styled Components](https://styled-components.com/) - For styles
 
