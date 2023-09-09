@@ -53,7 +53,9 @@ const JobFilterPanel = ({
               setFullTime(!fullTime);
             }}
           />
-          <h3> Full Time</h3>
+          <h3>
+            Full Time <span> only </span>
+          </h3>
         </div>
         <button className="searchBut" type="submit">
           Search
@@ -72,11 +74,17 @@ const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
     align-items: center;
     flex-direction: row;
     gap: 23px;
-    width: 689px;
+    width: 87.2%;
+    min-width: 689px;
     padding-left: 24px;
     padding-right: 16px;
     height: 80px;
     border-radius: 6px;
+  }
+
+  @media (min-width: 1024px) {
+    min-width: 880px;
+    max-width: 1110px;
   }
 
   hr {
@@ -94,6 +102,9 @@ const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
     gap: 16px;
     justify-content: flex-start;
     align-items: center;
+    @media (min-width: 1024px) {
+      width: 463px;
+    }
 
     .filtTitle {
       border: none;
@@ -105,6 +116,10 @@ const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+
+      @media (min-width: 1024px) {
+        width: 271px;
+      }
     }
   }
 
@@ -115,6 +130,9 @@ const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
     gap: 16px;
     justify-content: flex-start;
     align-items: center;
+    @media (min-width: 1024px) {
+      width: 300px;
+    }
 
     .filtLoc {
       border: none;
@@ -135,6 +153,9 @@ const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    @media (min-width: 1024px) {
+      width: 345px;
+    }
 
     .checkFull {
       width: 110px;
@@ -143,6 +164,9 @@ const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
       justify-content: flex-start;
       align-items: center;
       gap: 16px;
+      @media (min-width: 1024px) {
+        width: 148px;
+      }
 
       .checkInp {
         width: 24px;
@@ -161,10 +185,22 @@ const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
         font-style: normal;
         font-weight: 700;
         line-height: normal;
+        display: flex;
+        flex-direction: row;
+        gap: 3px;
+
+        span {
+          @media (min-width: 768px) {
+            display: none;
+          }
+          @media (min-width: 1024px) {
+            display: block;
+          }
+        }
       }
     }
     .searchBut {
-      width: 80px;
+      min-width: 80px;
       height: 48px;
       border-radius: 5px;
       background: #5964e0;
@@ -176,6 +212,9 @@ const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
       line-height: normal;
       border: none;
       cursor: pointer;
+      @media (min-width: 1024px) {
+        width: 123px;
+      }
     }
   }
 `;
