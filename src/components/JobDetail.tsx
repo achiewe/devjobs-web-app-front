@@ -113,7 +113,10 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
     gap: 53px;
     margin-top: -25px;
   }
-
+  @media (min-width: 1024px) {
+    gap: 80px;
+    margin-top: -40px;
+  }
   .subchapter {
     color: ${(props) => (props.darkMode ? "#FFFFFF" : "#19202D")};
     text-align: center;
@@ -148,6 +151,9 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
     @media (min-width: 768px) {
       gap: 32px;
       padding: 0 40px;
+    }
+    @media (min-width: 1024px) {
+      padding: 0;
     }
 
     h3 {
@@ -215,6 +221,11 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
         position: relative;
       }
 
+      @media (min-width: 1024px) {
+        width: 730px;
+        padding-right: 43px;
+      }
+
       .logoSite {
         width: 100%;
         display: flex;
@@ -250,10 +261,20 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
             border-bottom-right-radius: 0px;
           }
 
+          @media (min-width: 1024px) {
+            border-top-left-radius: 0px;
+            height: 135px;
+          }
+
           .logoImg {
             @media (min-width: 768px) {
               width: 80px;
               height: 25px;
+            }
+
+            @media (min-width: 1024px) {
+              width: 90px;
+              height: 40px;
             }
           }
         }
@@ -268,6 +289,11 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
           @media (min-width: 768px) {
             width: 78px;
             align-items: flex-start;
+          }
+
+          @media (min-width: 1024px) {
+            width: 90px;
+            height: 40px;
           }
 
           .companyH2 {
@@ -289,7 +315,11 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       a {
         width: 153px;
         border-radius: 5px;
-        background-color: rgba(89, 100, 224, 0.1);
+
+        background: ${(props) =>
+          props.darkMode
+            ? "rgba(255, 255, 255, 0.1)"
+            : "rgba(89, 100, 224, 0.1)"};
         height: 48px;
         display: flex;
         justify-content: center;
@@ -298,7 +328,7 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
         cursor: pointer;
 
         p {
-          color: #5964e0;
+          color: ${(props) => (props.darkMode ? "#fff" : "#5964E0")};
           text-align: center;
           font-size: 16px;
           font-style: normal;
@@ -321,6 +351,9 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
         width: 689px;
         padding: 48px;
         gap: 44px;
+      }
+      @media (min-width: 1024px) {
+        width: 730px;
       }
 
       .jobPosition {
@@ -443,6 +476,13 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
     @media (min-width: 768px) {
       padding: 23px 40px;
       justify-content: space-between;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 25px 0;
+      justify-content: center;
+      align-items: center;
+      gap: 349px;
     }
 
     .footerDiv {
