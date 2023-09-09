@@ -116,6 +116,7 @@ const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      cursor: pointer;
 
       @media (min-width: 1024px) {
         width: 271px;
@@ -144,6 +145,7 @@ const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      cursor: pointer;
     }
   }
 
@@ -212,9 +214,13 @@ const MainFilter = styled.div<{ darkMode: boolean; fullTime: boolean }>`
       line-height: normal;
       border: none;
       cursor: pointer;
+
       @media (min-width: 1024px) {
         width: 123px;
       }
+    }
+    .searchBut:hover {
+      background-color: #939bf4;
     }
   }
 `;
