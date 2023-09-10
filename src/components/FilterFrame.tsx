@@ -12,6 +12,7 @@ interface filtFrame {
   getFullTime: boolean;
   setgetFullTime(getFullTime: boolean): void;
   setInputLocation(InputLocation: string): void;
+  InputLocation: string;
 }
 
 const FiltFrame = ({
@@ -21,12 +22,22 @@ const FiltFrame = ({
   getFullTime,
   setgetFullTime,
   setInputLocation,
+  InputLocation,
 }: filtFrame): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
   const dispatch = useDispatch();
   return (
-    <MainTab darkMode={darkMode} ShowFrame={ShowFrame} fullTime={fullTime}>
+    <MainTab
+      darkMode={darkMode}
+      ShowFrame={ShowFrame}
+      fullTime={fullTime}
+      onSubmit={(e) => {
+        e.preventDefault();
+        setLocation(InputLocation);
+        setFullTime(getFullTime);
+      }}
+    >
       <div className="filtLocation">
         <img src={iconLoc} alt="icon location" />
         <input
@@ -62,7 +73,7 @@ const FiltFrame = ({
   );
 };
 
-const MainTab = styled.div<{
+const MainTab = styled.form<{
   darkMode: boolean;
   ShowFrame: boolean;
   fullTime: boolean;
