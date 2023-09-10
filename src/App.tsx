@@ -12,7 +12,7 @@ import { setEveryJob } from "./store/EveryJobSlice";
 import { useEffect } from "react";
 import JobsType from "../type";
 import { setJob } from "./store/DevJobsSlice";
-export const MONGO_URL = `http://localhost:3000/api/devjobs/`;
+export const MONGO_URL = `https://devjobs-web-app-api-production-ef2f.up.railway.app/api/devjobs/`;
 function App() {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
@@ -31,7 +31,7 @@ function App() {
 
     try {
       const response = await axios.get<JobsType[]>(
-        `http://localhost:3000/api/devjobs`
+        `https://devjobs-web-app-api-production-ef2f.up.railway.app/api/devjobs`
       );
       dispatch(setEveryJob(response.data));
       localStorage.setItem("devJobsData", JSON.stringify(response.data));
