@@ -156,6 +156,10 @@ const MainContainer = styled.div`
       margin-top: 56px;
     }
   }
+
+  .loadMore:hover {
+    background-color: #939bf4;
+  }
 `;
 
 const ListOfJobs = styled.div`
