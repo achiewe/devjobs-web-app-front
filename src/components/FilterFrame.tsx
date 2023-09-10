@@ -9,12 +9,20 @@ interface filtFrame {
   fullTime: boolean;
   setFullTime(fullTime: boolean): void;
   setLocation(location: string): void;
+  setTakeTitle(takeTitle: string): void;
+  getFullTime: boolean;
+  setgetFullTime(getFullTime: boolean): void;
+  setInputLocation(InputLocation: string): void;
 }
 
 const FiltFrame = ({
   fullTime,
   setFullTime,
   setLocation,
+  setTakeTitle,
+  getFullTime,
+  setgetFullTime,
+  setInputLocation,
 }: filtFrame): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const ShowFrame = useSelector((filter: Mode) => filter.FiltFrame.filter);
@@ -28,7 +36,7 @@ const FiltFrame = ({
           type="text"
           placeholder="Filter by location…"
           onChange={(e) => {
-            setLocation(e.target.value);
+            setInputLocation(e.target.value);
           }}
         />
       </div>
@@ -38,7 +46,7 @@ const FiltFrame = ({
           className="checkbox"
           type="checkbox"
           onChange={() => {
-            setFullTime(!fullTime);
+            setgetFullTime(!getFullTime);
           }}
         />
         <p> Full Time Only</p>

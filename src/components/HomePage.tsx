@@ -21,6 +21,10 @@ const HomePage = (): JSX.Element => {
   const [fullTime, setFullTime] = useState(false);
   const [location, setLocation] = useState(" ");
 
+  const [takeTitle, setTakeTitle] = useState(" ");
+  const [getFullTime, setgetFullTime] = useState(false);
+  const [InputLocation, setInputLocation] = useState(" ");
+
   const updateJob = () => {
     dispatch(setList(1));
   };
@@ -61,6 +65,10 @@ const HomePage = (): JSX.Element => {
         setFullTime={setFullTime}
         fullTime={fullTime}
         setLocation={setLocation}
+        setTakeTitle={setTakeTitle}
+        getFullTime={getFullTime}
+        setgetFullTime={setgetFullTime}
+        setInputLocation={setInputLocation}
       />
       <JobFilterPanel
         setTitle={setTitle}
