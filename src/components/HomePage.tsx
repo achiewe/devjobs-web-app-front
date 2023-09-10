@@ -68,7 +68,6 @@ const HomePage = (): JSX.Element => {
       />
       <FiltFrame
         setFullTime={setFullTime}
-        fullTime={fullTime}
         setLocation={setLocation}
         getFullTime={getFullTime}
         setgetFullTime={setgetFullTime}

@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { CloseFrame } from "../store/FiltFrameSlice";
 
 interface filtFrame {
-  fullTime: boolean;
   setFullTime(fullTime: boolean): void;
   setLocation(location: string): void;
   getFullTime: boolean;
@@ -16,7 +15,6 @@ interface filtFrame {
 }
 
 const FiltFrame = ({
-  fullTime,
   setFullTime,
   setLocation,
   getFullTime,
@@ -31,7 +29,7 @@ const FiltFrame = ({
     <MainTab
       darkMode={darkMode}
       ShowFrame={ShowFrame}
-      fullTime={fullTime}
+      getFullTime={getFullTime}
       onSubmit={(e) => {
         e.preventDefault();
         setLocation(InputLocation);
@@ -76,7 +74,7 @@ const FiltFrame = ({
 const MainTab = styled.form<{
   darkMode: boolean;
   ShowFrame: boolean;
-  fullTime: boolean;
+  getFullTime: boolean;
 }>`
   width: 327px;
   position: absolute;
@@ -137,7 +135,7 @@ const MainTab = styled.form<{
       width: 24px;
       height: 24px;
       background: ${(props) => (props.darkMode ? "white" : "#19202d")};
-      opacity: ${(props) => (props.fullTime ? "" : "0.1")};
+      opacity: ${(props) => (props.getFullTime ? "" : "0.1")};
       border-radius: 3px;
     }
 
