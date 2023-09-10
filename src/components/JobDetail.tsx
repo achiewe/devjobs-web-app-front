@@ -95,7 +95,9 @@ const JobDetail = (): JSX.Element => {
           <h2 className="subchapter">Senior Software Engineer </h2>
           <p className="descP"> So Digital Inc.</p>
         </div>
-        <button className="buttonBot">Apply Now </button>
+        <a className="buttonBot" href={selectedJobDet.website}>
+          Apply Now
+        </a>
       </footer>
     </MainContainer>
   );
@@ -523,6 +525,7 @@ const MainContainer = styled.div<{ darkMode: boolean; bg?: string }>`
       border: none;
       border-radius: 5px;
       background-color: #5964e0;
+      text-decoration: none;
       cursor: pointer;
 
       @media (min-width: 768px) {
