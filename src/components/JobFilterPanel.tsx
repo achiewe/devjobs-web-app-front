@@ -7,41 +7,46 @@ import { Mode } from "../store/redux";
 interface PanelProps {
   setTitle(title: string): void;
   setFullTime(fullTime: boolean): void;
-  fullTime: boolean;
   setLocation(location: string): void;
-  location: string;
-  title: string;
+  setTakeTitle(takeTitle: string): void;
+  takeTitle: string;
+  setgetFullTime(getFullTime: boolean): void;
+  getFullTime: boolean;
+  setInputLocation(InputLocation: string): void;
+  InputLocation: string;
 }
 
 const JobFilterPanel = ({
   setTitle,
   setFullTime,
-  fullTime,
   setLocation,
-  location,
-  title,
+  setTakeTitle,
+  takeTitle,
+  setgetFullTime,
+  getFullTime,
+  setInputLocation,
+  InputLocation,
 }: PanelProps): JSX.Element => {
   const darkMode = useSelector((mode: Mode) => mode.Mode.gloomy);
 
   return (
     <MainFilter
       darkMode={darkMode}
-      fullTime={fullTime}
+      getFullTime={getFullTime}
       onSubmit={(e) => {
         e.preventDefault();
-        setLocation(location);
-        setFullTime(!fullTime);
-        setTitle(title);
+        setTitle(takeTitle);
+        setFullTime(getFullTime);
+        setLocation(InputLocation);
       }}
     >
       <div className="titleDiv">
         <img src={SearchSvg} alt="search logo" />
         <input
           onChange={(e) => {
-            setTitle(e.target.value);
+            setTakeTitle(e.target.value);
           }}
           className="filtTitle"
-          value={title}
           type="text"
           placeholder="Filter by title…"
         />
@@ -53,9 +58,8 @@ const JobFilterPanel = ({
           className="filtLoc"
           type="text"
           placeholder="Filter by location…"
-          value={location}
           onChange={(e) => {
-            setLocation(e.target.value);
+            setInputLocation(e.target.value);
           }}
         />
       </div>
@@ -66,7 +70,7 @@ const JobFilterPanel = ({
             type="checkbox"
             className="checkInp"
             onClick={() => {
-              setFullTime(!fullTime);
+              setgetFullTime(!getFullTime);
             }}
           />
           <h3>
@@ -81,7 +85,7 @@ const JobFilterPanel = ({
   );
 };
 
-const MainFilter = styled.form<{ darkMode: boolean; fullTime: boolean }>`
+const MainFilter = styled.form<{ darkMode: boolean; getFullTime: boolean }>`
   display: none;
   @media (min-width: 768px) {
     display: flex;
@@ -191,7 +195,7 @@ const MainFilter = styled.form<{ darkMode: boolean; fullTime: boolean }>`
         height: 24px;
         border: none;
         background: ${(props) => (props.darkMode ? "white" : "#19202d")};
-        opacity: ${(props) => (props.fullTime ? "" : "0.1")};
+        opacity: ${(props) => (props.getFullTime ? "" : "0.1")};
         border-radius: 3px;
         outline: none;
         cursor: pointer;

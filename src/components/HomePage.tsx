@@ -77,10 +77,13 @@ const HomePage = (): JSX.Element => {
       <JobFilterPanel
         setTitle={setTitle}
         setFullTime={setFullTime}
-        fullTime={fullTime}
         setLocation={setLocation}
-        location={location}
-        title={title}
+        setTakeTitle={setTakeTitle}
+        takeTitle={takeTitle}
+        setgetFullTime={setgetFullTime}
+        getFullTime={getFullTime}
+        setInputLocation={setInputLocation}
+        InputLocation={InputLocation}
       />
       <ListOfJobs>
         {visibleFilterJob.map((job, index) => (
