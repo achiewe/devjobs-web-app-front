@@ -60,12 +60,15 @@ const HomePage = (): JSX.Element => {
   const visibleFilterJob = filteredJob.slice(0, visibleJob);
   return (
     <MainContainer>
-      <InputFilter setTitle={setTitle} />
+      <InputFilter
+        setTitle={setTitle}
+        setTakeTitle={setTakeTitle}
+        takeTitle={takeTitle}
+      />
       <FiltFrame
         setFullTime={setFullTime}
         fullTime={fullTime}
         setLocation={setLocation}
-        setTakeTitle={setTakeTitle}
         getFullTime={getFullTime}
         setgetFullTime={setgetFullTime}
         setInputLocation={setInputLocation}

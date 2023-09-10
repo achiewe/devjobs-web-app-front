@@ -6,20 +6,32 @@ import { openFrame } from "../store/FiltFrameSlice";
 
 interface FilterProps {
   setTitle(title: string): void;
+  setTakeTitle(takeTitle: string): void;
+  takeTitle: string;
 }
 
-const InputFilter = ({ setTitle }: FilterProps): JSX.Element => {
+const InputFilter = ({
+  setTitle,
+  setTakeTitle,
+  takeTitle,
+}: FilterProps): JSX.Element => {
   const darkMode = useSelector((dark: Mode) => dark.Mode.gloomy);
   const dispatch = useDispatch();
 
   return (
-    <MainFilter darkMode={darkMode}>
+    <MainFilter
+      darkMode={darkMode}
+      onSubmit={(e) => {
+        e.preventDefault();
+        setTitle(takeTitle);
+      }}
+    >
       <input
         className="TitleFilt"
         type="text"
         placeholder="Filter by title…"
         onChange={(e) => {
-          setTitle(e.target.value);
+          setTakeTitle(e.target.value);
         }}
       />
       <div>

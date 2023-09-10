@@ -9,7 +9,6 @@ interface filtFrame {
   fullTime: boolean;
   setFullTime(fullTime: boolean): void;
   setLocation(location: string): void;
-  setTakeTitle(takeTitle: string): void;
   getFullTime: boolean;
   setgetFullTime(getFullTime: boolean): void;
   setInputLocation(InputLocation: string): void;
@@ -19,7 +18,6 @@ const FiltFrame = ({
   fullTime,
   setFullTime,
   setLocation,
-  setTakeTitle,
   getFullTime,
   setgetFullTime,
   setInputLocation,
